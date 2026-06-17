@@ -27,7 +27,7 @@
     color: var(--tk-fg-4x);
     font-family: var(--tk-font-body);
     font-size: var(--tk-text-md);
-    line-height: var(--tk-line-height-md);
+    line-height: var(--tk-line-height-lg);
   }
 
   body, main, section, article, aside, header, footer {

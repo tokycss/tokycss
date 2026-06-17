@@ -15,7 +15,7 @@ select {
   width: 100%;
   padding: 0.625rem var(--tk-size-12);
   font-size: var(--tk-text-md);
-  line-height: var(--tk-line-height-sm);
+  line-height: var(--tk-line-height-md);
   color: var(--tk-fg-5x);
   background-color: var(--tk-bg-4x);
   border: 1px solid var(--tk-bg-4x);

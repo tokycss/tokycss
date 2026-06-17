@@ -3,42 +3,42 @@
 h1 {
   font-size: var(--tk-text-5xl);
   font-weight: 800;
-  line-height: var(--tk-line-height-xs);
+  line-height: var(--tk-line-height-sm);
   margin-block-end: var(--tk-size-24);
 }
 
 h2 {
   font-size: var(--tk-text-4xl);
   font-weight: 700;
-  line-height: var(--tk-line-height-xs);
+  line-height: var(--tk-line-height-sm);
   margin-block-end: var(--tk-size-16);
 }
 
 h3 {
   font-size: var(--tk-text-3xl);
   font-weight: 700;
-  line-height: var(--tk-line-height-sm);
+  line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-12);
 }
 
 h4 {
   font-size: var(--tk-text-2xl);
   font-weight: 600;
-  line-height: var(--tk-line-height-xs);
+  line-height: var(--tk-line-height-sm);
   margin-block-end: var(--tk-size-8);
 }
 
 h5 {
   font-size: var(--tk-text-xl);
   font-weight: 600;
-  line-height: var(--tk-line-height-xs);
+  line-height: var(--tk-line-height-sm);
   margin-block-end: var(--tk-size-8);
 }
 
 h6 {
   font-size: var(--tk-text-lg);
   font-weight: 600;
-  line-height: var(--tk-line-height-xs);
+  line-height: var(--tk-line-height-sm);
   margin-block-end: var(--tk-size-8);
 }
 
@@ -124,7 +124,7 @@ kbd {
 pre {
   font-family: var(--tk-font-mono);
   font-size: var(--tk-text-sm);
-  line-height: var(--tk-line-height-sm);
+  line-height: var(--tk-line-height-md);
   background-color: var(--tk-color-theme-4xlight);
   color: var(--tk-fg-5x);
   padding: var(--tk-size-24);
@@ -183,7 +183,7 @@ blockquote cite::before {
 
 :where(article, section, main) li {
   margin-block-end: var(--tk-size-4);
-  line-height: var(--tk-line-height-sm);
+  line-height: var(--tk-line-height-md);
 
 }
 

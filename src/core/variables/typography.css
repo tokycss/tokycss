@@ -197,14 +197,11 @@
    * - Values 1.5-1.7 are ideal for body text for readability
    * - Larger values create more spacing for easier reading
    */
-    --tk-line-height-2xs: 0.55; /* Compact (headings) */
-    --tk-line-height-xs: 1; /* Compact (headings) */
-    --tk-line-height-sm: 1.25; /* Slightly compact */
-    --tk-line-height-md: 1.5; /* Standard body text */
-    --tk-line-height-lg: 1.625; /* Slightly relaxed */
-    --tk-line-height-xl: 2; /* Loose (easy reading) */
-    --tk-line-height-2xl: 0.75rem; /* Fixed line height for small text */
-    --tk-line-height-3xl: 1rem; /* Fixed line height */
+    --tk-line-height-xs: 0.55;
+    --tk-line-height-sm: 1;
+    --tk-line-height-md: 1.25;
+    --tk-line-height-lg: 1.5;
+    --tk-line-height-xl: 1.625;
 
     /*
    * Letter Spacing
@@ -214,14 +211,11 @@
    * - Positive values spread letters apart
    * - 'em' units scale with the font size
    */
-    --tk-letter-spacing-2xs: -0.05em; /* Tighter spacing */
-    --tk-letter-spacing-xs: -0.1em; /* Tighter spacing */
-    --tk-letter-spacing-sm: -0.025em; /* Slightly tighter */
-    --tk-letter-spacing-md: 0em; /* Normal spacing */
-    --tk-letter-spacing-lg: 0.025em; /* Slightly wider */
-    --tk-letter-spacing-xl: 0.05em; /* Wider spacing */
-    --tk-letter-spacing-2xl: 0.1em; /* Widest spacing */
-    --tk-letter-spacing-3xl: 0.2em; /* Widest spacing */
+    --tk-letter-spacing-xs: -0.05em;
+    --tk-letter-spacing-sm: -0.025em;
+    --tk-letter-spacing-md: 0em;
+    --tk-letter-spacing-lg: 0.025em;
+    --tk-letter-spacing-xl: 0.1em;
 
     /*
    * Text Decoration Properties
@@ -230,26 +224,20 @@
    */
     --tk-text-underline-offset-auto: var(--tk-value-auto);
     --tk-text-underline-offset-0: var(--tk-value-0);
-    --tk-text-underline-offset-2xs: 0.5px;
     --tk-text-underline-offset-xs: 1px;
     --tk-text-underline-offset-sm: 2px;
-    --tk-text-underline-offset-md: 0.15em;
+    --tk-text-underline-offset-md: 4px;
     --tk-text-underline-offset-lg: 8px;
-    --tk-text-underline-offset-xl: 10px; /* Default distance between text and underline */
-    --tk-text-underline-offset-2xl: 12px; /* Default distance between text and underline */
-    --tk-text-underline-offset-3xl: 14px; /* Default distance between text and underline */
+    --tk-text-underline-offset-xl: 10px;
 
     --tk-text-underline-auto: var(--tk-value-auto);
     --tk-text-underline-from-font: from-font;
     --tk-text-underline-0: 0px;
-    --tk-text-underline-2xs: 1px;
-    --tk-text-underline-xs: 2px;
-    --tk-text-underline-sm: 4px;
-    --tk-text-underline-md: 6px;
-    --tk-text-underline-lg: 8px;
-    --tk-text-underline-xl: 10px;
-    --tk-text-underline-2xl: 12px;
-    --tk-text-underline-3xl: 14px;
+    --tk-text-underline-xs: 1px;
+    --tk-text-underline-sm: 2px;
+    --tk-text-underline-md: 4px;
+    --tk-text-underline-lg: 6px;
+    --tk-text-underline-xl: 8px;
 
     --tk-text-underline-style-none: none;
     --tk-text-underline-style-solid: solid;
@@ -311,14 +299,11 @@
    * Controls the indentation of the first line of text
    */
     --tk-indent-0: var(--tk-value-0);
-    --tk-indent-2xs: 0.0325rem;
     --tk-indent-xs: 0.0625rem;
     --tk-indent-sm: 0.25rem;
     --tk-indent-md: 0.5rem;
     --tk-indent-lg: 1rem;
     --tk-indent-xl: 2rem;
-    --tk-indent-2xl: 2.5rem;
-    --tk-indent-3xl: 3rem;
 
     /*
    * Text Shadow Properties
@@ -326,27 +311,21 @@
    * Controls text shadow effects
    */
     --tk-text-shadow-none: var(--tk-value-none);
-    --tk-text-shadow-2xs: 0.5px 0.5px 1px rgba(0, 0, 0, 0.08);
     --tk-text-shadow-xs: 1px 1px 2px rgba(0, 0, 0, 0.1);
     --tk-text-shadow-sm: 2px 2px 4px rgba(0, 0, 0, 0.1);
     --tk-text-shadow-md: 4px 4px 6px rgba(0, 0, 0, 0.1);
     --tk-text-shadow-lg: 6px 6px 8px rgba(0, 0, 0, 0.15);
     --tk-text-shadow-xl: 8px 8px 10px rgba(0, 0, 0, 0.15);
-    --tk-text-shadow-2xl: 10px 10px 12px rgba(0, 0, 0, 0.15);
-    --tk-text-shadow-3xl: 12px 12px 14px rgba(0, 0, 0, 0.15);
 
     /*
    * Text Stroke Properties
    * Controls text stroke (outline) effects
    */
-    --tk-text-stroke-2xs: 1px;
-    --tk-text-stroke-xs: 2px;
-    --tk-text-stroke-sm: 4px;
-    --tk-text-stroke-md: 8px;
-    --tk-text-stroke-lg: 12px;
+    --tk-text-stroke-xs: 1px;
+    --tk-text-stroke-sm: 2px;
+    --tk-text-stroke-md: 4px;
+    --tk-text-stroke-lg: 8px;
     --tk-text-stroke-xl: 16px;
-    --tk-text-stroke-2xl: 20px;
-    --tk-text-stroke-3xl: 24px;
 
     /*
    * List Style Properties

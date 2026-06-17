@@ -684,43 +684,31 @@
     --tk-font-variant-caps-all-petite-caps: all-petite-caps;
     --tk-font-variant-caps-unicase: unicase;
     --tk-font-variant-caps-titling-caps: titling-caps;
-    --tk-line-height-2xs: .55;
-    --tk-line-height-xs: 1;
-    --tk-line-height-sm: 1.25;
-    --tk-line-height-md: 1.5;
-    --tk-line-height-lg: 1.625;
-    --tk-line-height-xl: 2;
-    --tk-line-height-2xl: .75rem;
-    --tk-line-height-3xl: 1rem;
-    --tk-letter-spacing-2xs: -.05em;
-    --tk-letter-spacing-xs: -.1em;
+    --tk-line-height-xs: .55;
+    --tk-line-height-sm: 1;
+    --tk-line-height-md: 1.25;
+    --tk-line-height-lg: 1.5;
+    --tk-line-height-xl: 1.625;
+    --tk-letter-spacing-xs: -.05em;
     --tk-letter-spacing-sm: -.025em;
     --tk-letter-spacing-md: 0em;
     --tk-letter-spacing-lg: .025em;
-    --tk-letter-spacing-xl: .05em;
-    --tk-letter-spacing-2xl: .1em;
-    --tk-letter-spacing-3xl: .2em;
+    --tk-letter-spacing-xl: .1em;
     --tk-text-underline-offset-auto: var(--tk-value-auto);
     --tk-text-underline-offset-0: var(--tk-value-0);
-    --tk-text-underline-offset-2xs: .5px;
     --tk-text-underline-offset-xs: 1px;
     --tk-text-underline-offset-sm: 2px;
-    --tk-text-underline-offset-md: .15em;
+    --tk-text-underline-offset-md: 4px;
     --tk-text-underline-offset-lg: 8px;
     --tk-text-underline-offset-xl: 10px;
-    --tk-text-underline-offset-2xl: 12px;
-    --tk-text-underline-offset-3xl: 14px;
     --tk-text-underline-auto: var(--tk-value-auto);
     --tk-text-underline-from-font: from-font;
     --tk-text-underline-0: 0px;
-    --tk-text-underline-2xs: 1px;
-    --tk-text-underline-xs: 2px;
-    --tk-text-underline-sm: 4px;
-    --tk-text-underline-md: 6px;
-    --tk-text-underline-lg: 8px;
-    --tk-text-underline-xl: 10px;
-    --tk-text-underline-2xl: 12px;
-    --tk-text-underline-3xl: 14px;
+    --tk-text-underline-xs: 1px;
+    --tk-text-underline-sm: 2px;
+    --tk-text-underline-md: 4px;
+    --tk-text-underline-lg: 6px;
+    --tk-text-underline-xl: 8px;
     --tk-text-underline-style-none: none;
     --tk-text-underline-style-solid: solid;
     --tk-text-underline-style-double: double;
@@ -750,31 +738,22 @@
     --tk-whitespace-pre-wrap: pre-wrap;
     --tk-whitespace-break-spaces: break-spaces;
     --tk-indent-0: var(--tk-value-0);
-    --tk-indent-2xs: .0325rem;
     --tk-indent-xs: .0625rem;
     --tk-indent-sm: .25rem;
     --tk-indent-md: .5rem;
     --tk-indent-lg: 1rem;
     --tk-indent-xl: 2rem;
-    --tk-indent-2xl: 2.5rem;
-    --tk-indent-3xl: 3rem;
     --tk-text-shadow-none: var(--tk-value-none);
-    --tk-text-shadow-2xs: .5px .5px 1px #00000014;
     --tk-text-shadow-xs: 1px 1px 2px #0000001a;
     --tk-text-shadow-sm: 2px 2px 4px #0000001a;
     --tk-text-shadow-md: 4px 4px 6px #0000001a;
     --tk-text-shadow-lg: 6px 6px 8px #00000026;
     --tk-text-shadow-xl: 8px 8px 10px #00000026;
-    --tk-text-shadow-2xl: 10px 10px 12px #00000026;
-    --tk-text-shadow-3xl: 12px 12px 14px #00000026;
-    --tk-text-stroke-2xs: 1px;
-    --tk-text-stroke-xs: 2px;
-    --tk-text-stroke-sm: 4px;
-    --tk-text-stroke-md: 8px;
-    --tk-text-stroke-lg: 12px;
+    --tk-text-stroke-xs: 1px;
+    --tk-text-stroke-sm: 2px;
+    --tk-text-stroke-md: 4px;
+    --tk-text-stroke-lg: 8px;
     --tk-text-stroke-xl: 16px;
-    --tk-text-stroke-2xl: 20px;
-    --tk-text-stroke-3xl: 24px;
     --tk-list-style-type-none: var(--tk-value-none);
     --tk-list-style-type-disc: disc;
     --tk-list-style-type-decimal: decimal;
@@ -997,7 +976,7 @@
     color: var(--tk-fg-4x);
     font-family: var(--tk-font-body);
     font-size: var(--tk-text-md);
-    line-height: var(--tk-line-height-md);
+    line-height: var(--tk-line-height-lg);
   }
 
   body, main, section, article, aside, header, footer {
@@ -1157,42 +1136,42 @@
   h1 {
     font-size: var(--tk-text-5xl);
     font-weight: 800;
-    line-height: var(--tk-line-height-xs);
+    line-height: var(--tk-line-height-sm);
     margin-block-end: var(--tk-size-24);
   }
 
   h2 {
     font-size: var(--tk-text-4xl);
     font-weight: 700;
-    line-height: var(--tk-line-height-xs);
+    line-height: var(--tk-line-height-sm);
     margin-block-end: var(--tk-size-16);
   }
 
   h3 {
     font-size: var(--tk-text-3xl);
     font-weight: 700;
-    line-height: var(--tk-line-height-sm);
+    line-height: var(--tk-line-height-md);
     margin-block-end: var(--tk-size-12);
   }
 
   h4 {
     font-size: var(--tk-text-2xl);
     font-weight: 600;
-    line-height: var(--tk-line-height-xs);
+    line-height: var(--tk-line-height-sm);
     margin-block-end: var(--tk-size-8);
   }
 
   h5 {
     font-size: var(--tk-text-xl);
     font-weight: 600;
-    line-height: var(--tk-line-height-xs);
+    line-height: var(--tk-line-height-sm);
     margin-block-end: var(--tk-size-8);
   }
 
   h6 {
     font-size: var(--tk-text-lg);
     font-weight: 600;
-    line-height: var(--tk-line-height-xs);
+    line-height: var(--tk-line-height-sm);
     margin-block-end: var(--tk-size-8);
   }
 
@@ -1274,7 +1253,7 @@
   pre {
     font-family: var(--tk-font-mono);
     font-size: var(--tk-text-sm);
-    line-height: var(--tk-line-height-sm);
+    line-height: var(--tk-line-height-md);
     background-color: var(--tk-color-theme-4xlight);
     color: var(--tk-fg-5x);
     padding: var(--tk-size-24);
@@ -1332,7 +1311,7 @@
   }
 
   :where(article, section, main) li {
-    line-height: var(--tk-line-height-sm);
+    line-height: var(--tk-line-height-md);
     margin-block-end: var(--tk-size-4);
   }
 
@@ -1412,7 +1391,7 @@
     width: 100%;
     padding: .625rem var(--tk-size-12);
     font-size: var(--tk-text-md);
-    line-height: var(--tk-line-height-sm);
+    line-height: var(--tk-line-height-md);
     color: var(--tk-fg-5x);
     background-color: var(--tk-bg-4x);
     border: 1px solid var(--tk-bg-4x);
