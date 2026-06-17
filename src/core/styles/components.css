@@ -94,7 +94,7 @@ caption {
 /* Dialog */
 dialog {
   border: none;
-  border-radius: var(--tk-radius-4);
+  border-radius: var(--tk-radius-sm);
   padding: var(--tk-size-48);
   background-color: var(--tk-bg-4x);
   color: var(--tk-fg-4x);

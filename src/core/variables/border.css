@@ -9,26 +9,20 @@
    * Controls the roundness of element corners.
    * Consistent border radius values create a cohesive design language.
    */
-    --tk-radius-0: var(--tk-size-0); /* No rounding */
-    --tk-radius-2xs: 1px; /* Barely visible rounding */
-    --tk-radius-xs: 2px; /* Barely visible rounding */
-    --tk-radius-sm: 4px; /* Subtle rounding */
-    --tk-radius-md: 8px; /* Standard rounding */
-    --tk-radius-lg: 12px; /* Prominent rounding */
-    --tk-radius-xl: 16px; /* Very rounded corners */
-    --tk-radius-2xl: 20px; /* Extra rounded corners */
-    --tk-radius-3xl: 24px; /* Extra rounded corners */
-    --tk-radius-full: 9999px; /* Fully rounded (circles/pills) */
+    --tk-radius-0: var(--tk-size-0);
+    --tk-radius-xs: 2px;
+    --tk-radius-sm: 4px;
+    --tk-radius-md: 8px;
+    --tk-radius-lg: 12px;
+    --tk-radius-xl: 16px;
+    --tk-radius-full: 9999px;
 
     --tk-border-0: 0px;
-    --tk-border-2xs: 1px;
-    --tk-border-xs: 2px;
-    --tk-border-sm: 4px;
-    --tk-border-md: 8px;
-    --tk-border-lg: 12px;
+    --tk-border-xs: 1px;
+    --tk-border-sm: 2px;
+    --tk-border-md: 4px;
+    --tk-border-lg: 8px;
     --tk-border-xl: 16px;
-    --tk-border-2xl: 20px;
-    --tk-border-3xl: 24px;
 
     /*
    * Border Styles
@@ -60,14 +54,11 @@
     --tk-outline-double: double; /* Double outline */
 
     --tk-outline-0: 0px;
-    --tk-outline-2xs: 1px;
-    --tk-outline-xs: 2px;
-    --tk-outline-sm: 4px;
-    --tk-outline-md: 8px;
-    --tk-outline-lg: 12px;
+    --tk-outline-xs: 1px;
+    --tk-outline-sm: 2px;
+    --tk-outline-md: 4px;
+    --tk-outline-lg: 8px;
     --tk-outline-xl: 16px;
-    --tk-outline-2xl: 20px;
-    --tk-outline-3xl: 24px;
 
 
 
