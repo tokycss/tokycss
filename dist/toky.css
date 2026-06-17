@@ -496,24 +496,18 @@
     --tk-grid-auto-fit: auto-fit;
     --tk-grid-auto-fill: auto-fill;
     --tk-radius-0: var(--tk-size-0);
-    --tk-radius-2xs: 1px;
     --tk-radius-xs: 2px;
     --tk-radius-sm: 4px;
     --tk-radius-md: 8px;
     --tk-radius-lg: 12px;
     --tk-radius-xl: 16px;
-    --tk-radius-2xl: 20px;
-    --tk-radius-3xl: 24px;
     --tk-radius-full: 9999px;
     --tk-border-0: 0px;
-    --tk-border-2xs: 1px;
-    --tk-border-xs: 2px;
-    --tk-border-sm: 4px;
-    --tk-border-md: 8px;
-    --tk-border-lg: 12px;
+    --tk-border-xs: 1px;
+    --tk-border-sm: 2px;
+    --tk-border-md: 4px;
+    --tk-border-lg: 8px;
     --tk-border-xl: 16px;
-    --tk-border-2xl: 20px;
-    --tk-border-3xl: 24px;
     --tk-border-none: none;
     --tk-border-solid: solid;
     --tk-border-dashed: dashed;
@@ -529,14 +523,11 @@
     --tk-outline-dotted: dotted;
     --tk-outline-double: double;
     --tk-outline-0: 0px;
-    --tk-outline-2xs: 1px;
-    --tk-outline-xs: 2px;
-    --tk-outline-sm: 4px;
-    --tk-outline-md: 8px;
-    --tk-outline-lg: 12px;
+    --tk-outline-xs: 1px;
+    --tk-outline-sm: 2px;
+    --tk-outline-md: 4px;
+    --tk-outline-lg: 8px;
     --tk-outline-xl: 16px;
-    --tk-outline-2xl: 20px;
-    --tk-outline-3xl: 24px;
     --tk-filter-blur-0: blur(0px);
     --tk-filter-blur-1x: blur(1px);
     --tk-filter-blur-2x: blur(2px);
@@ -1366,14 +1357,14 @@
   }
 
   hr {
-    background: var(--tk-border-2xs);
+    background: var(--tk-fg-4x);
     height: 1px;
     margin-block: var(--tk-size-48);
     border: none;
   }
 
   details {
-    border: 1px solid var(--tk-border-2xs);
+    border: 1px solid var(--tk-fg-4x);
     border-radius: var(--tk-radius-sm);
     padding: var(--tk-size-12) var(--tk-size-24);
     margin-block-end: var(--tk-size-12);
@@ -1447,7 +1438,7 @@
   }
 
   input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):hover, textarea:hover, select:hover {
-    border-color: var(--tk-border-2xs);
+    border-color: var(--tk-fg-4x);
   }
 
   input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):focus, textarea:focus, select:focus {
@@ -1564,7 +1555,7 @@
 
   input[type="color"] {
     appearance: none;
-    border: 2px solid var(--tk-border-2xs);
+    border: 2px solid var(--tk-fg-4x);
     border-radius: var(--tk-size-8);
     width: 3rem;
     height: 2.5rem;
@@ -1694,7 +1685,7 @@
 
   thead {
     background-color: var(--tk-color-theme-4xlight);
-    border-bottom: 2px solid var(--tk-border-2xs);
+    border-bottom: 2px solid var(--tk-fg-4x);
   }
 
   th {
@@ -1733,7 +1724,7 @@
   }
 
   dialog {
-    border-radius: var(--tk-radius-4);
+    border-radius: var(--tk-radius-sm);
     padding: var(--tk-size-48);
     background-color: var(--tk-bg-4x);
     color: var(--tk-fg-4x);
@@ -1802,7 +1793,7 @@
 @layer layout {
   header {
     padding: var(--tk-size-20) var(--tk-size-20);
-    border-bottom: 1px solid var(--tk-border-xs);
+    border-bottom: 1px solid var(--tk-border-sm);
     background-color: var(--tk-bg-4x);
     justify-content: space-between;
     align-items: center;
