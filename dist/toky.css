@@ -849,22 +849,16 @@
         .46,
         .45,
         .94);
-    --tk-duration-2x: .1s;
-    --tk-duration-xs: .2s;
-    --tk-duration-sm: .5s;
+    --tk-duration-xs: .1s;
+    --tk-duration-sm: .35s;
     --tk-duration-md: .8s;
-    --tk-duration-lg: 1.2s;
-    --tk-duration-xl: 2s;
-    --tk-duration-2xl: 4s;
-    --tk-duration-3xl: 8s;
-    --tk-delay-2x: 50ms;
-    --tk-delay-xs: .1s;
-    --tk-delay-sm: .2s;
+    --tk-duration-lg: 1.5s;
+    --tk-duration-xl: 3s;
+    --tk-delay-xs: 50ms;
+    --tk-delay-sm: .15s;
     --tk-delay-md: .4s;
-    --tk-delay-lg: .6s;
-    --tk-delay-xl: .8s;
-    --tk-delay-2xl: 1.2s;
-    --tk-delay-3xl: 2s;
+    --tk-delay-lg: .7s;
+    --tk-delay-xl: 1.5s;
     --tk-anim-default-duration: var(--tk-duration-md);
     --tk-anim-default-timing: ease-out;
     --tk-anim-default-fill-mode: both;
@@ -905,23 +899,17 @@
         .9,
         .2,
         1);
-    --tk-transition-2x: .15s;
-    --tk-transition-xs: .2s;
-    --tk-transition-sm: .25s;
+    --tk-transition-xs: .15s;
+    --tk-transition-sm: .225s;
     --tk-transition-md: .3s;
-    --tk-transition-lg: .35s;
-    --tk-transition-xl: .4s;
-    --tk-transition-2xl: .45s;
-    --tk-transition-3xl: .5s;
+    --tk-transition-lg: .375s;
+    --tk-transition-xl: .45s;
     --tk-transition-all: all .4s var(--tk-ease);
-    --tk-transition-all-2x: all .15s var(--tk-ease);
-    --tk-transition-all-xs: all .2s var(--tk-ease);
-    --tk-transition-all-sm: all .25s var(--tk-ease);
+    --tk-transition-all-xs: all .15s var(--tk-ease);
+    --tk-transition-all-sm: all .225s var(--tk-ease);
     --tk-transition-all-md: all .3s var(--tk-ease);
-    --tk-transition-all-lg: all .35s var(--tk-ease);
-    --tk-transition-all-xl: all .4s var(--tk-ease);
-    --tk-transition-all-2xl: all .45s var(--tk-ease);
-    --tk-transition-all-3xl: all .5s var(--tk-ease);
+    --tk-transition-all-lg: all .375s var(--tk-ease);
+    --tk-transition-all-xl: all .45s var(--tk-ease);
     --tk-transition-color: color .4s var(--tk-ease);
     --tk-transition-background: background .4s var(--tk-ease);
     --tk-transition-border: border .4s var(--tk-ease);
@@ -1240,7 +1228,7 @@
     text-decoration: underline;
     text-decoration-color: var(--tk-color-primary-2a);
     text-underline-offset: .15em;
-    transition: color var(--tk-duration-xs) var(--tk-ease), text-decoration-color var(--tk-duration-xs) var(--tk-ease);
+    transition: color var(--tk-duration-sm) var(--tk-ease), text-decoration-color var(--tk-duration-sm) var(--tk-ease);
     text-decoration-thickness: 1px;
   }
 
@@ -1432,7 +1420,7 @@
     background-color: var(--tk-bg-4x);
     border: 1px solid var(--tk-bg-4x);
     border-radius: var(--tk-size-8);
-    transition: border-color var(--tk-duration-xs) var(--tk-ease), box-shadow var(--tk-duration-xs) var(--tk-ease);
+    transition: border-color var(--tk-duration-sm) var(--tk-ease), box-shadow var(--tk-duration-sm) var(--tk-ease);
     outline: none;
     display: block;
   }
@@ -1479,7 +1467,7 @@
     cursor: pointer;
     width: 1.125rem;
     height: 1.125rem;
-    transition: background-color var(--tk-duration-xs) var(--tk-ease), border-color var(--tk-duration-xs) var(--tk-ease);
+    transition: background-color var(--tk-duration-sm) var(--tk-ease), border-color var(--tk-duration-sm) var(--tk-ease);
     flex-shrink: 0;
     position: relative;
   }
@@ -1546,7 +1534,7 @@
     height: 1.25rem;
     box-shadow: var(--tk-color-shadow-sm);
     cursor: grab;
-    transition: transform var(--tk-duration-xs) var(--tk-ease);
+    transition: transform var(--tk-duration-sm) var(--tk-ease);
   }
 
   input[type="range"]::-webkit-slider-thumb:hover {
@@ -1587,7 +1575,7 @@
     color: #fff;
     border-radius: var(--tk-size-8);
     cursor: pointer;
-    transition: background-color var(--tk-duration-xs) var(--tk-ease);
+    transition: background-color var(--tk-duration-sm) var(--tk-ease);
     border: none;
     margin-inline-end: var(--tk-size-4);
   }
@@ -1655,11 +1643,11 @@
     user-select: var(--tk-user-select-none);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
-    transition: background-color var(--tk-duration-sm) var(--tk-ease),
-    color var(--tk-duration-sm) var(--tk-ease),
-    border-color var(--tk-duration-sm) var(--tk-ease),
-    box-shadow var(--tk-duration-sm) var(--tk-ease),
-    transform var(--tk-duration-sm) var(--tk-ease);
+    transition: background-color var(--tk-duration-md) var(--tk-ease),
+    color var(--tk-duration-md) var(--tk-ease),
+    border-color var(--tk-duration-md) var(--tk-ease),
+    box-shadow var(--tk-duration-md) var(--tk-ease),
+    transform var(--tk-duration-md) var(--tk-ease);
     border: 1px solid #0000;
     font-weight: 600;
     line-height: 1.4;
@@ -1704,7 +1692,7 @@
   }
 
   tbody tr {
-    transition: background-color var(--tk-duration-sm) var(--tk-ease);
+    transition: background-color var(--tk-duration-md) var(--tk-ease);
   }
 
   tbody tr:hover {

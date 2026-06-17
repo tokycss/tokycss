@@ -19,14 +19,11 @@
    */
 
     /* Duration */
-    --tk-duration-2x: 0.1s; /* Extra extra fast animations */
-    --tk-duration-xs: 0.2s; /* Extra fast animations */
-    --tk-duration-sm: 0.5s; /* Fast animations */
-    --tk-duration-md: 0.8s; /* Standard animations */
-    --tk-duration-lg: 1.2s; /* Slow animations */
-    --tk-duration-xl: 2s; /* Very slow animations */
-    --tk-duration-2xl: 4s; /* Very very slow animations */
-    --tk-duration-3xl: 8s; /* Very very very slow animations */
+    --tk-duration-xs: 0.1s;
+    --tk-duration-sm: 0.35s;
+    --tk-duration-md: 0.8s;
+    --tk-duration-lg: 1.5s;
+    --tk-duration-xl: 3s;
 
     /*
    * Animation Delay Variables
@@ -35,14 +32,11 @@
    */
 
     /* Delay */
-    --tk-delay-2x: 0.05s; /* Extra extra fast delay */
-    --tk-delay-xs: 0.1s; /* Extra fast delay */
-    --tk-delay-sm: 0.2s; /* Fast delay */
-    --tk-delay-md: 0.4s; /* Medium delay */
-    --tk-delay-lg: 0.6s; /* Large delay */
-    --tk-delay-xl: 0.8s; /* Extra large delay */
-    --tk-delay-2xl: 1.2s; /* Extra extra large delay */
-    --tk-delay-3xl: 2s; /* Extra extra extra large delay */
+    --tk-delay-xs: 0.05s;
+    --tk-delay-sm: 0.15s;
+    --tk-delay-md: 0.4s;
+    --tk-delay-lg: 0.7s;
+    --tk-delay-xl: 1.5s;
 
     /*
    * Animation Engine Variables
@@ -138,25 +132,19 @@
    */
 
     /* Transition Durations */
-    --tk-transition-2x: 150ms; /* Extra extra fast transitions */
-    --tk-transition-xs: 200ms; /* Extra fast transitions */
-    --tk-transition-sm: 250ms; /* Fast transitions */
-    --tk-transition-md: 300ms; /* Standard transitions */
-    --tk-transition-lg: 350ms; /* Slow transitions */
-    --tk-transition-xl: 400ms; /* Extra slow transitions */
-    --tk-transition-2xl: 450ms; /* Extra extra slow transitions */
-    --tk-transition-3xl: 500ms; /* Extra extra extra slow transitions */
+    --tk-transition-xs: 150ms;
+    --tk-transition-sm: 225ms;
+    --tk-transition-md: 300ms;
+    --tk-transition-lg: 375ms;
+    --tk-transition-xl: 450ms;
 
     /* Common Transitions */
-    --tk-transition-all: all 0.4s var(--tk-ease); /* All properties */
-    --tk-transition-all-2x: all 0.15s var(--tk-ease); /* Extra extra fast transitions */
-    --tk-transition-all-xs: all 0.2s var(--tk-ease); /* Extra fast transitions */
-    --tk-transition-all-sm: all 0.25s var(--tk-ease); /* Fast transitions */
-    --tk-transition-all-md: all 0.3s var(--tk-ease); /* Standard transitions */
-    --tk-transition-all-lg: all 0.35s var(--tk-ease); /* Slow transitions */
-    --tk-transition-all-xl: all 0.4s var(--tk-ease); /* Extra slow transitions */
-    --tk-transition-all-2xl: all 0.45s var(--tk-ease); /* Extra extra slow transitions */
-    --tk-transition-all-3xl: all 0.5s var(--tk-ease); /* Extra extra extra slow transitions */
+    --tk-transition-all: all 0.4s var(--tk-ease);
+    --tk-transition-all-xs: all 0.15s var(--tk-ease);
+    --tk-transition-all-sm: all 0.225s var(--tk-ease);
+    --tk-transition-all-md: all 0.3s var(--tk-ease);
+    --tk-transition-all-lg: all 0.375s var(--tk-ease);
+    --tk-transition-all-xl: all 0.45s var(--tk-ease);
     --tk-transition-color: color 0.4s var(--tk-ease); /* Color only */
     --tk-transition-background: background 0.4s var(--tk-ease); /* Background only */
     --tk-transition-border: border 0.4s var(--tk-ease); /* Border only */

@@ -74,7 +74,7 @@ small {
   text-decoration-color: var(--tk-color-primary-2a);
   text-underline-offset: 0.15em;
   text-decoration-thickness: 1px;
-  transition: color var(--tk-duration-xs) var(--tk-ease), text-decoration-color var(--tk-duration-xs) var(--tk-ease);
+  transition: color var(--tk-duration-sm) var(--tk-ease), text-decoration-color var(--tk-duration-sm) var(--tk-ease);
 }
 
 :where(article, section, main) a:not([role="button"]):hover {

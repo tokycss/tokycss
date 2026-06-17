@@ -21,11 +21,11 @@ input[type="reset"],
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition:
-    background-color var(--tk-duration-sm) var(--tk-ease),
-    color var(--tk-duration-sm) var(--tk-ease),
-    border-color var(--tk-duration-sm) var(--tk-ease),
-    box-shadow var(--tk-duration-sm) var(--tk-ease),
-    transform var(--tk-duration-sm) var(--tk-ease);
+    background-color var(--tk-duration-md) var(--tk-ease),
+    color var(--tk-duration-md) var(--tk-ease),
+    border-color var(--tk-duration-md) var(--tk-ease),
+    box-shadow var(--tk-duration-md) var(--tk-ease),
+    transform var(--tk-duration-md) var(--tk-ease);
 }
 
 :where(form, fieldset, [role="group"]) button:active,
@@ -72,7 +72,7 @@ td {
 }
 
 tbody tr {
-  transition: background-color var(--tk-duration-sm) var(--tk-ease);
+  transition: background-color var(--tk-duration-md) var(--tk-ease);
 }
 
 tbody tr:hover {
