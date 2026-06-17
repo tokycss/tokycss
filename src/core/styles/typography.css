@@ -196,12 +196,12 @@ blockquote cite::before {
 hr {
   border: none;
   height: 1px;
-  background: var(--tk-border-2xs);
+  background: var(--tk-fg-4x);
   margin-block: var(--tk-size-48);
 }
 
 details {
-  border: 1px solid var(--tk-border-2xs);
+  border: 1px solid var(--tk-fg-4x);
   border-radius: var(--tk-radius-sm);
   padding: var(--tk-size-12) var(--tk-size-24);
   margin-block-end: var(--tk-size-12);

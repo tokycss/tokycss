@@ -27,7 +27,7 @@ select {
 input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):hover,
 textarea:hover,
 select:hover {
-  border-color: var(--tk-border-2xs);
+  border-color: var(--tk-fg-4x);
 }
 
 input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):focus,
@@ -154,7 +154,7 @@ input[type="color"] {
   appearance: none;
   width: 3rem;
   height: 2.5rem;
-  border: 2px solid var(--tk-border-2xs);
+  border: 2px solid var(--tk-fg-4x);
   border-radius: var(--tk-size-8);
   padding: var(--tk-size-4);
   cursor: pointer;

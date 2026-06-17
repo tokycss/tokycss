@@ -53,7 +53,7 @@ table {
 
 thead {
   background-color: var(--tk-color-theme-4xlight);
-  border-bottom: 2px solid var(--tk-border-2xs);
+  border-bottom: 2px solid var(--tk-fg-4x);
 }
 
 th {
