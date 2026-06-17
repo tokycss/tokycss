@@ -1,9 +1,9 @@
 :root{
-  --tk-screen-sm: 480px;
-  --tk-screen-md: 768px;
-  --tk-screen-lg: 1024px;
-  --tk-screen-xl: 1280px;
-  --tk-screen-2xl: 1440px;
+  --tk-screen-xs: 480px;
+  --tk-screen-sm: 768px;
+  --tk-screen-md: 1024px;
+  --tk-screen-lg: 1280px;
+  --tk-screen-xl: 1440px;
     
 /* ====================================================================== */
 /* COMMON VALUES SYSTEM                                                   */
@@ -65,9 +65,9 @@
     /* Core spacing values */
     --tk-size-none: var(--tk-value-none);
     --tk-size-0: var(--tk-value-0);
-    --tk-size-2xs: 0.5px;
     --tk-size-1: 1px;
     --tk-size-2: 2px;
+    --tk-size-6: 6px;
 
     /* --- 4px-Based Systematic Scale --- */
     --tk-size-4: calc(var(--tk-size-unit) * 1); /* 4px */
@@ -232,14 +232,11 @@
     --tk-fill-current: currentColor;
     --tk-stroke-current: currentColor;
     --tk-stroke-0: 0px;
-    --tk-stroke-2x: 1px;
-    --tk-stroke-xs: 2px;
-    --tk-stroke-sm: 4px;
-    --tk-stroke-md: 8px;
-    --tk-stroke-lg: 12px;
+    --tk-stroke-xs: 1px;
+    --tk-stroke-sm: 2px;
+    --tk-stroke-md: 4px;
+    --tk-stroke-lg: 8px;
     --tk-stroke-xl: 16px;
-    --tk-stroke-2xl: 20px;
-    --tk-stroke-3xl: 24px;
 
 
 

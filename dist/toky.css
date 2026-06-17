@@ -231,11 +231,11 @@
     --tk-color-shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 4px 6px -4px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --tk-color-shadow-xl: 0 20px 25px -5px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 8px 10px -6px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --tk-color-shadow-2xl: 0 25px 50px -12px color-mix(in oklch, var(--tk-color-shadow) 25%, transparent);
-    --tk-screen-sm: 480px;
-    --tk-screen-md: 768px;
-    --tk-screen-lg: 1024px;
-    --tk-screen-xl: 1280px;
-    --tk-screen-2xl: 1440px;
+    --tk-screen-xs: 480px;
+    --tk-screen-sm: 768px;
+    --tk-screen-md: 1024px;
+    --tk-screen-lg: 1280px;
+    --tk-screen-xl: 1440px;
     --tk-value-auto: auto;
     --tk-value-none: none;
     --tk-value-normal: normal;
@@ -261,9 +261,9 @@
     --tk-size-unit: 4px;
     --tk-size-none: var(--tk-value-none);
     --tk-size-0: var(--tk-value-0);
-    --tk-size-2xs: .5px;
     --tk-size-1: 1px;
     --tk-size-2: 2px;
+    --tk-size-6: 6px;
     --tk-size-4: calc(var(--tk-size-unit) * 1);
     --tk-size-8: calc(var(--tk-size-unit) * 2);
     --tk-size-12: calc(var(--tk-size-unit) * 3);
@@ -368,14 +368,11 @@
     --tk-fill-current: currentColor;
     --tk-stroke-current: currentColor;
     --tk-stroke-0: 0px;
-    --tk-stroke-2x: 1px;
-    --tk-stroke-xs: 2px;
-    --tk-stroke-sm: 4px;
-    --tk-stroke-md: 8px;
-    --tk-stroke-lg: 12px;
+    --tk-stroke-xs: 1px;
+    --tk-stroke-sm: 2px;
+    --tk-stroke-md: 4px;
+    --tk-stroke-lg: 8px;
     --tk-stroke-xl: 16px;
-    --tk-stroke-2xl: 20px;
-    --tk-stroke-3xl: 24px;
     --tk-appearance-none: none;
     --tk-appearance-auto: auto;
     --tk-pointer-events-none: none;
@@ -994,7 +991,7 @@
 
   body {
     background-color: var(--tk-bg-5x);
-    max-width: var(--tk-screen-2xl);
+    max-width: var(--tk-screen-xl);
     margin-inline: var(--tk-value-auto);
     min-height: 100dvh;
     color: var(--tk-fg-4x);

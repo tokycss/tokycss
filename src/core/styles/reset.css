@@ -20,7 +20,7 @@
 
   body {
     background-color: var(--tk-bg-5x);
-    max-width: var(--tk-screen-2xl);
+    max-width: var(--tk-screen-xl);
     margin-inline: var(--tk-value-auto);
     min-height: 100vh;
     min-height: 100dvh;
