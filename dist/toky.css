@@ -1211,7 +1211,7 @@
     min-width: 1.5em;
     font-size: var(--tk-text-xs);
     color: var(--tk-fg-3x);
-    box-shadow: var(--tk-color-shadow-sm);
+    box-shadow: var(--tk-shadow-sm);
     border-bottom-width: 2px;
     justify-content: center;
     align-items: center;
@@ -1478,7 +1478,7 @@
     border: 3px solid var(--tk-bg-4x);
     width: 1.25rem;
     height: 1.25rem;
-    box-shadow: var(--tk-color-shadow-sm);
+    box-shadow: var(--tk-shadow-sm);
     cursor: grab;
     transition: transform var(--tk-duration-sm) var(--tk-ease);
   }
@@ -1662,7 +1662,7 @@
     padding: var(--tk-size-48);
     background-color: var(--tk-bg-4x);
     color: var(--tk-fg-4x);
-    box-shadow: var(--tk-color-shadow-lg);
+    box-shadow: var(--tk-shadow-lg);
     border: none;
     width: 100%;
     max-width: min(90vw, 32rem);

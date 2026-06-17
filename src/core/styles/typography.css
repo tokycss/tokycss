@@ -118,7 +118,7 @@ kbd {
   font-size: var(--tk-text-xs);
   font-weight: 600;
   color: var(--tk-fg-3x);
-  box-shadow: var(--tk-color-shadow-sm);
+  box-shadow: var(--tk-shadow-sm);
 }
 
 pre {

@@ -98,7 +98,7 @@ dialog {
   padding: var(--tk-size-48);
   background-color: var(--tk-bg-4x);
   color: var(--tk-fg-4x);
-  box-shadow: var(--tk-color-shadow-lg);
+  box-shadow: var(--tk-shadow-lg);
   max-width: min(90vw, 32rem);
   width: 100%;
   position: fixed;

@@ -141,7 +141,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--tk-color-primary);
   border-radius: var(--tk-radius-full);
   border: 3px solid var(--tk-bg-4x);
-  box-shadow: var(--tk-color-shadow-sm);
+  box-shadow: var(--tk-shadow-sm);
   cursor: grab;
   transition: transform var(--tk-duration-sm) var(--tk-ease);
 }
