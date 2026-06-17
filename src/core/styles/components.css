@@ -10,11 +10,11 @@ input[type="reset"],
   gap: var(--tk-size-2);
   padding: 0.625rem var(--tk-size-24);
   font-size: var(--tk-text-sm);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
   line-height: 1.4;
-  white-space: nowrap;
+  white-space: var(--tk-whitespace-nowrap);
   border-radius: var(--tk-size-8);
-  cursor: pointer;
+  cursor: var(--tk-cursor-pointer);
   user-select: var(--tk-user-select-none);
   border: 1px solid transparent;
   /* Prevent text selection and improve touch targets */
@@ -38,16 +38,16 @@ button:disabled,
 input[type="submit"]:disabled,
 input[type="button"]:disabled,
 [role="button"][aria-disabled="true"] {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
+  opacity: var(--tk-opacity-md);
+  cursor: var(--tk-cursor-not-allowed);
+  transform: var(--tk-value-none);
 }
 
 /* Table */
 table {
   width: 100%;
   font-size: var(--tk-text-sm);
-  text-align: left;
+  text-align: var(--tk-text-left);
   margin-block-end: var(--tk-size-32);
 }
 
@@ -58,9 +58,9 @@ thead {
 
 th {
   padding: var(--tk-size-4) var(--tk-size-12);
-  font-weight: 700;
+  font-weight: var(--tk-font-weight-700);
   font-size: var(--tk-text-xs);
-  text-transform: uppercase;
+  text-transform: var(--tk-text-transform-uppercase);
   letter-spacing: 0.06em;
   color: var(--tk-fg-2x);
 }
@@ -80,20 +80,20 @@ tbody tr:hover {
 }
 
 tbody tr:last-child td {
-  border-bottom: none;
+  border-bottom: var(--tk-border-none);
 }
 
 caption {
   padding: var(--tk-size-4) var(--tk-size-12);
   font-size: var(--tk-text-sm);
   color: var(--tk-fg-4x);
-  text-align: left;
+  text-align: var(--tk-text-left);
   caption-side: bottom;
 }
 
 /* Dialog */
 dialog {
-  border: none;
+  border: var(--tk-border-none);
   border-radius: var(--tk-radius-sm);
   padding: var(--tk-size-48);
   background-color: var(--tk-bg-4x);
@@ -117,12 +117,12 @@ dialog[open] {
 
 @keyframes toky-dialog-in {
   from {
-    opacity: 0;
+    opacity: var(--tk-opacity-0);
     transform: scale(0.95) translateY(8px);
   }
 
   to {
-    opacity: 1;
+    opacity: var(--tk-opacity-full);
     transform: scale(1) translateY(0);
   }
 }
@@ -140,10 +140,10 @@ nav a {
   gap: var(--tk-size-4);
   padding: var(--tk-size-2) var(--tk-size-4);
   font-size: var(--tk-text-sm);
-  font-weight: 500;
+  font-weight: var(--tk-font-weight-500);
   color: var(--tk-fg-2x);
   border-radius: var(--tk-size-8);
-  text-decoration: none;
+  text-decoration: var(--tk-value-none);
   transition:
     color var(--tk-duration-xs) var(--tk-ease),
     background-color var(--tk-duration-xs) var(--tk-ease);
@@ -158,5 +158,5 @@ nav a[aria-current="page"],
 nav a[aria-current="true"] {
   color: var(--tk-color-primary-1xdark);
   background-color: var(--tk-color-primary-2a);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
 }

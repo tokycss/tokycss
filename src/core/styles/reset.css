@@ -38,12 +38,12 @@
     font-family: var(--tk-font-heading);
     letter-spacing: var(--tk-letter-spacing-lg);
     overflow-wrap: break-word;
-    text-wrap: balance;
+    text-wrap: var(--tk-text-wrap-balance);
   }
 
   p, span {
     overflow-wrap: break-word;
-    text-wrap: pretty;
+    text-wrap: var(--tk-text-wrap-pretty);
   }
 
   img, picture, video, canvas, svg, i {
@@ -53,7 +53,7 @@
     min-width: 16px;
     max-width: 100%;
     height: auto;
-    font-style: italic;
+    font-style: var(--tk-font-style-italic);
     display: block;
   }
 
@@ -76,15 +76,15 @@
   }
 
   button {
-    cursor: pointer;
-    background: none;
-    border: none;
+    cursor: var(--tk-cursor-pointer);
+    background: var(--tk-bg-none);
+    border: var(--tk-border-none);
   }
 
   a {
     color: inherit;
     text-decoration: inherit;
-    cursor: pointer;
+    cursor: var(--tk-cursor-pointer);
   }
 
   ol, ul, menu {
@@ -127,7 +127,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: none;
+    background: var(--tk-bg-none);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -145,7 +145,7 @@
   }
 
   [hidden] {
-    display: none;
+    display: var(--tk-display-none);
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -183,6 +183,6 @@
     }
 
     * {
-      box-shadow: none ;
+      box-shadow: var(--tk-value-none) ;
     }
   }

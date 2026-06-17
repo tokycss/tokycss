@@ -24,7 +24,7 @@ header > * nav ul {
 
 header > * nav ul li a {
     font-size: var(--tk-text-xs);
-    text-decoration: none;
+    text-decoration: var(--tk-value-none);
 }
 
 main {

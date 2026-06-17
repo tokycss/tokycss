@@ -2,42 +2,42 @@
 
 h1 {
   font-size: var(--tk-text-5xl);
-  font-weight: 800;
+  font-weight: var(--tk-font-weight-800);
   line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-24);
 }
 
 h2 {
   font-size: var(--tk-text-4xl);
-  font-weight: 700;
+  font-weight: var(--tk-font-weight-700);
   line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-16);
 }
 
 h3 {
   font-size: var(--tk-text-3xl);
-  font-weight: 700;
+  font-weight: var(--tk-font-weight-700);
   line-height: var(--tk-line-height-lg);
   margin-block-end: var(--tk-size-12);
 }
 
 h4 {
   font-size: var(--tk-text-2xl);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
   line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-8);
 }
 
 h5 {
   font-size: var(--tk-text-xl);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
   line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-8);
 }
 
 h6 {
   font-size: var(--tk-text-lg);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
   line-height: var(--tk-line-height-md);
   margin-block-end: var(--tk-size-8);
 }
@@ -54,13 +54,13 @@ h1 ~ p, h2 ~ p {
 
 strong,
 b {
-  font-weight: 700;
+  font-weight: var(--tk-font-weight-700);
   color: var(--tk-fg-5x);
 }
 
 em,
 i {
-  font-style: italic;
+  font-style: var(--tk-font-style-italic);
 }
 
 small {
@@ -102,7 +102,7 @@ samp {
   color: var(--tk-color-primary-1xdark);
   padding: 0.125rem 0.375rem;
   border-radius: var(--tk-size-4);
-  font-weight: 500;
+  font-weight: var(--tk-font-weight-500);
 }
 
 kbd {
@@ -116,7 +116,7 @@ kbd {
   border-bottom-width: 2px;
   border-radius: var(--tk-size-4);
   font-size: var(--tk-text-xs);
-  font-weight: 600;
+  font-weight: var(--tk-font-weight-600);
   color: var(--tk-fg-3x);
   box-shadow: var(--tk-shadow-sm);
 }
@@ -136,7 +136,7 @@ pre {
 }
 
 pre>code {
-  background: none;
+  background: var(--tk-bg-none);
   padding: 0;
   color: inherit;
   font-size: inherit;
@@ -147,7 +147,7 @@ blockquote {
   padding-inline-start: var(--tk-size-24);
   padding-block: var(--tk-size-4);
   margin-block-end: var(--tk-size-32);
-  font-style: italic;
+  font-style: var(--tk-font-style-italic);
   color: var(--tk-fg-2x);
   font-size: var(--tk-text-lg);
 }
@@ -160,8 +160,8 @@ blockquote cite {
   display: block;
   margin-block-start: var(--tk-size-2);
   font-size: var(--tk-text-sm);
-  font-style: normal;
-  font-weight: 500;
+  font-style: var(--tk-value-normal);
+  font-weight: var(--tk-font-weight-500);
   color: var(--tk-fg-4x);
 }
 
@@ -194,7 +194,7 @@ blockquote cite::before {
 }
 
 hr {
-  border: none;
+  border: var(--tk-border-none);
   height: 1px;
   background: var(--tk-fg-4x);
   margin-block: var(--tk-size-48);
@@ -208,12 +208,12 @@ details {
 }
 
 summary {
-  font-weight: 600;
-  cursor: pointer;
-  user-select: none;
+  font-weight: var(--tk-font-weight-600);
+  cursor: var(--tk-cursor-pointer);
+  user-select: var(--tk-user-select-none);
   color: var(--tk-fg-4x);
   padding: var(--tk-size-4) 0;
-  list-style: none;
+  list-style: var(--tk-list-style-type-none);
   display: flex;
   align-items: center;
   gap: var(--tk-size-12);
@@ -231,7 +231,7 @@ details[open]>summary::before {
 }
 
 summary::-webkit-details-marker {
-  display: none;
+  display: var(--tk-display-none);
 }
 
 details>*:not(summary) {
@@ -247,5 +247,5 @@ figcaption {
   color: var(--tk-fg-4x);
   margin-block-start: var(--tk-size-2);
   text-align: center;
-  font-style: italic;
+  font-style: var(--tk-font-style-italic);
 }
