@@ -1,0 +1,8 @@
+@layer reset, typography, forms, components, layout, utilities;
+
+@import url("./core/styles/reset.css") layer(reset);
+@import url("./core/styles/typography.css") layer(typography);
+@import url("./core/styles/forms.css") layer(forms);
+@import url("./core/styles/components.css") layer(components);
+@import url("./core/styles/layout.css") layer(layout);
+@import url("./core/styles/utilities.css") layer(utilities);

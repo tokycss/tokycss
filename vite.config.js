@@ -16,14 +16,32 @@ function tokyBuildPlugin() {
 
       try {
         // 1. Bundle via LightningCSS (reads entry + resolves @imports from disk)
-        const unmin = bundle({
+
+        // Full bundles (all variables + all styles)
+        const fullUnmin = bundle({
           filename: entryFile,
           minify: false,
           sourceMap: false,
         });
 
-        const min = bundle({
+        const fullMin = bundle({
           filename: entryFile,
+          minify: true,
+          sourceMap: false,
+        });
+
+        // Variables-only bundle (just :root --tk-* declarations)
+        const variablesEntry = path.resolve(root, 'src/core/styles/variables.css');
+        const variablesMin = bundle({
+          filename: variablesEntry,
+          minify: true,
+          sourceMap: false,
+        });
+
+        // Styles-only bundle (all rules, no variable declarations)
+        const stylesEntry = path.resolve(root, 'src/toky.styles.css');
+        const stylesMin = bundle({
+          filename: stylesEntry,
           minify: true,
           sourceMap: false,
         });
@@ -35,10 +53,12 @@ function tokyBuildPlugin() {
         }
 
         // 3. Final Write
-        await fs.writeFile(path.join(outDir, 'toky.css'), unmin.code);
-        await fs.writeFile(path.join(outDir, 'toky.min.css'), min.code);
+        await fs.writeFile(path.join(outDir, 'toky.css'), fullUnmin.code);
+        await fs.writeFile(path.join(outDir, 'toky.min.css'), fullMin.code);
+        await fs.writeFile(path.join(outDir, 'toky.variables.min.css'), variablesMin.code);
+        await fs.writeFile(path.join(outDir, 'toky.styles.min.css'), stylesMin.code);
 
-        console.log('SUCCESS: toky.css and toky.min.css are up to date.');
+        console.log('SUCCESS: toky.css, toky.min.css, toky.variables.min.css, toky.styles.min.css are up to date.');
       } catch (err) {
         console.error('❌ Toky Build Error:', err);
       }
@@ -62,7 +82,7 @@ export default defineConfig({
   },
   // Ensure the server watches your CSS for changes
   server: {
-    open: 'docs/styleguide.html',
+    open: 'docs/pages/index.html',
     watch: {
       usePolling: true
     }
