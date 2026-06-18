@@ -57,10 +57,10 @@ Content outline:
 
 ---
 
-### Task 3: `reference/variables/colors.md`
+### Task 3: `core/variables/colors.md`
 
 **Files:**
-- Create: `docs/reference/variables/colors.md`
+- Create: `docs/core/variables/colors.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -79,10 +79,10 @@ Content outline:
 
 ---
 
-### Task 4: `reference/variables/base.md`
+### Task 4: `core/variables/base.md`
 
 **Files:**
-- Create: `docs/reference/variables/base.md`
+- Create: `docs/core/variables/base.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -103,10 +103,10 @@ Content outline:
 
 ---
 
-### Task 5: `reference/variables/layout.md`
+### Task 5: `core/variables/layout.md`
 
 **Files:**
-- Create: `docs/reference/variables/layout.md`
+- Create: `docs/core/variables/layout.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -129,10 +129,10 @@ Content outline:
 
 ---
 
-### Task 6: `reference/variables/border.md`
+### Task 6: `core/variables/border.md`
 
 **Files:**
-- Create: `docs/reference/variables/border.md`
+- Create: `docs/core/variables/border.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -149,10 +149,10 @@ Content outline:
 
 ---
 
-### Task 7: `reference/variables/effects.md`
+### Task 7: `core/variables/effects.md`
 
 **Files:**
-- Create: `docs/reference/variables/effects.md`
+- Create: `docs/core/variables/effects.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -167,10 +167,10 @@ Content outline:
 
 ---
 
-### Task 8: `reference/variables/typography.md`
+### Task 8: `core/variables/typography.md`
 
 **Files:**
-- Create: `docs/reference/variables/typography.md`
+- Create: `docs/core/variables/typography.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -195,10 +195,10 @@ Content outline:
 
 ---
 
-### Task 9: `reference/variables/animation.md`
+### Task 9: `core/variables/animation.md`
 
 **Files:**
-- Create: `docs/reference/variables/animation.md`
+- Create: `docs/core/variables/animation.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -215,10 +215,10 @@ Content outline:
 
 ---
 
-### Task 10: `reference/variables/theme.md`
+### Task 10: `core/variables/theme.md`
 
 **Files:**
-- Create: `docs/reference/variables/theme.md`
+- Create: `docs/core/variables/theme.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -237,10 +237,10 @@ Content outline:
 
 ---
 
-### Task 11: `reference/styles/reset.md`
+### Task 11: `core/styles/reset.md`
 
 **Files:**
-- Create: `docs/reference/styles/reset.md`
+- Create: `docs/core/styles/reset.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -265,10 +265,10 @@ Content outline:
 
 ---
 
-### Task 12: `reference/styles/typography.md`
+### Task 12: `core/styles/typography.md`
 
 **Files:**
-- Create: `docs/reference/styles/typography.md`
+- Create: `docs/core/styles/typography.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -290,10 +290,10 @@ Content outline:
 
 ---
 
-### Task 13: `reference/styles/forms.md`
+### Task 13: `core/styles/forms.md`
 
 **Files:**
-- Create: `docs/reference/styles/forms.md`
+- Create: `docs/core/styles/forms.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -317,10 +317,10 @@ Content outline:
 
 ---
 
-### Task 14: `reference/styles/components.md`
+### Task 14: `core/styles/components.md`
 
 **Files:**
-- Create: `docs/reference/styles/components.md`
+- Create: `docs/core/styles/components.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -336,10 +336,10 @@ Content outline:
 
 ---
 
-### Task 15: `reference/styles/layout.md`
+### Task 15: `core/styles/layout.md`
 
 **Files:**
-- Create: `docs/reference/styles/layout.md`
+- Create: `docs/core/styles/layout.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -364,10 +364,10 @@ Content outline:
 
 ---
 
-### Task 16: `reference/styles/utilities.md`
+### Task 16: `core/styles/utilities.md`
 
 **Files:**
-- Create: `docs/reference/styles/utilities.md`
+- Create: `docs/core/styles/utilities.md`
 
 - [ ] **Step 1: Write the file**
 
@@ -392,10 +392,10 @@ After all tasks complete, do a single commit grouping by section:
 git add docs/getting-started/ docs/customization/
 git commit -m "docs: add installation and customization guides"
 
-git add docs/reference/variables/
+git add docs/core/variables/
 git commit -m "docs: add design tokens reference (colors, base, layout, border, effects, typography, animation, theme)"
 
-git add docs/reference/styles/
+git add docs/core/styles/
 git commit -m "docs: add styles reference (reset, typography, forms, components, layout, utilities)"
 ```
 

@@ -46,5 +46,6 @@ coverage/
 .stylelintcache
 
 skills/
-docs/
 exp/
+docs/pages/
+docs/superpowers/

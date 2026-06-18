@@ -93,6 +93,29 @@ Configure the lane widths in `styleguide.css`:
 --tk-grid-auto-fill: auto-fill;
 ```
 
+## Gap
+
+| Variable | Value |
+|---|---|
+| `--tk-gap-0` | 0 |
+| `--tk-gap-xs` | 2px |
+| `--tk-gap-sm` | 4px |
+| `--tk-gap-md` | 8px |
+| `--tk-gap-lg` | 16px |
+| `--tk-gap-xl` | 32px |
+
+## Z-Index
+
+| Variable | Value |
+|---|---|
+| `--tk-z-index-auto` | auto |
+| `--tk-z-index-0` | 0 |
+| `--tk-z-index-xs` | 1 |
+| `--tk-z-index-sm` | 10 |
+| `--tk-z-index-md` | 100 |
+| `--tk-z-index-lg` | 1000 |
+| `--tk-z-index-xl` | 10000 |
+
 ## Aspect Ratios
 
 ```css
