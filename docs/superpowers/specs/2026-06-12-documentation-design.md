@@ -40,7 +40,7 @@ docs/
     installation.md         — CDN link, styleguide.css setup, basic boilerplate
   customization/
     styleguide.md           — How to customize via styleguide.css
-  reference/
+  core/
     variables/
       colors.md             — Brand colors, theme, semantic (success/warning/info/error)
                               with tints, shades, alpha variants, shadows
@@ -80,43 +80,43 @@ docs/
 - Fluid scale bounds
 - Full minimal example
 
-### reference/variables/colors.md
+### core/variables/colors.md
 - Brand color variables (primary, secondary, accent)
 - Theme color scale
 - Semantic colors: success, warning, error, info
 - Tint/shade/alpha variants for all of the above
 - Shadow variables (xs through 2xl)
 
-### reference/variables/base.md
+### core/variables/base.md
 - Screen size breakpoints (sm, md, lg, xl, 2xl)
 - 4px spacing system — used for gaps, border-radius, padding/margin, inset
 - Common values (auto, none, normal, etc.)
 - Percentage/vw/vh sizing for widths, heights, degrees
 - Cursor, alignment, table, SVG properties
 
-### reference/variables/layout.md
+### core/variables/layout.md
 - Grid engine explanation: how the named-grid-line system works
 - Configuring lanes via `styleguide.css` (`--tk-content-width`, `--tk-content-fill-width`, `--tk-page-gutter`)
 - Position, display, overflow, flexbox, grid variables
 - Lane classes: `.layout--grid`, `.layout--main`, `.layout--fill`, `.layout--full`, and cross-lane utilities
 
-### reference/variables/border.md
+### core/variables/border.md
 - Border radius scale (0 through full)
 - Border widths and styles
 - Outline properties
 
-### reference/variables/effects.md
+### core/variables/effects.md
 - Filter system: blur, brightness, contrast, grayscale, hue-rotate, invert, saturate, sepia
 - Opacity scale
 
-### reference/variables/typography.md
+### core/variables/typography.md
 - Fluid type scale variables (xs through 9xl) — only the variables, not the engine
 - Font weights, line heights, letter spacing
 - Text decoration, transform, alignment
 - List style, text direction, writing mode
 - Background properties
 
-### reference/variables/animation.md
+### core/variables/animation.md
 - Duration values (2x through 3xl)
 - Delay values
 - Easing functions (standard + expressive)
@@ -124,14 +124,14 @@ docs/
 - Transition system (duration presets + common transitions)
 - Note mapping inconsistencies if any remain
 
-### reference/variables/theme.md
+### core/variables/theme.md
 - Semantic tokens concept: backgrounds use tints, foregrounds use shades
 - `@media (prefers-color-scheme: dark)` for automatic dark mode
 - All background and foreground variables
 - Status background/foreground tokens
 - `data-theme="light"` and `data-theme="dark"` overrides
 
-### reference/styles/reset.md
+### core/styles/reset.md
 - Box-sizing, font smoothing, text-rendering
 - Body defaults (font, color, background, max-width, min-height)
 - Heading font/letter-spacing
@@ -142,7 +142,7 @@ docs/
 - Scrollbar styling
 - Print and reduced-motion quirks
 
-### reference/styles/typography.md
+### core/styles/typography.md
 - Heading hierarchy (h1-h6) with sizes, weights, line-heights
 - Paragraphs and adjacent heading+paragraph sizing
 - Inline semantics: strong, em, small, code, kbd, samp, mark
@@ -154,7 +154,7 @@ docs/
 - Details/summary with animated disclosure marker
 - Figure/figcaption
 
-### reference/styles/forms.md
+### core/styles/forms.md
 - Labels (block display, sizing, required asterisk)
 - Text-like inputs, textareas, selects (with custom chevron)
 - Focus and hover states
@@ -166,19 +166,19 @@ docs/
 - Progress bar
 - Fieldset/legend
 
-### reference/styles/components.md
+### core/styles/components.md
 - Buttons: base style, active scale, disabled state
 - Tables: full-width, thead styling, th/td, tbody hover, caption
 - Dialog: centered modal, backdrop blur, entry animation
 - Nav: horizontal flex, link hover, aria-current active state
 
-### reference/styles/layout.md
+### core/styles/layout.md
 - Semantic element defaults: header (flex nav), main (centered), section, footer, aside
 - `.layout--grid` system: what it is, how to apply it
 - Lane classes: `.layout--main`, `.layout--fill`, `.layout--full`
 - Advanced cross-lane utilities
 
-### reference/styles/utilities.md
+### core/styles/utilities.md
 - Button size modifiers: `.btn--sm`, `.btn--md`, `.btn--lg`
 - `[aria-busy="true"]` — progress indicator
 - `[aria-disabled="true"]` — disabled state
@@ -189,31 +189,17 @@ docs/
 
 These are noted in documentation but not yet fixed:
 
-### 1. `data-theme` overrides are incomplete
+### 1. ~~`data-theme` overrides are incomplete~~ **(Resolved)**
 
-**Problem:** After switching from `light-dark()` to `@media (prefers-color-scheme: dark)`, the `[data-theme="light"]` and `[data-theme="dark"]` selectors only set `color-scheme`. Without `light-dark()`, this property no longer affects custom property values — the variables stay on their light defaults regardless of `data-theme`.
+**Fix:** Replaced `@media (prefers-color-scheme: dark)` with CSS `light-dark()` in every semantic token declaration. Now `[data-theme]` blocks work correctly — `light-dark()` respects the `color-scheme` property, so setting `color-scheme: dark` on `[data-theme="dark"]` properly switches all bg/fg tokens.
 
-**Suggested fix:** Redeclare all semantic tokens under each `data-theme` selector:
+### 2. ~~`--tk-focus-ring-alt` references undefined `--tk-bg-surface`~~ **(Resolved)**
 
-```css
-[data-theme="dark"] {
-  --tk-bg-5x: var(--tk-color-theme-5xdark);
-  --tk-bg-4x: var(--tk-color-theme-4xdark);
-  /* ... all bg and fg variables ... */
-}
-```
+**Fix:** Removed `--tk-focus-ring-alt` and its undefined `--tk-bg-surface` dependency from `theme.css`. The variable was never consumed anywhere in the codebase.
 
-### 2. `--tk-focus-ring-alt` references undefined `--tk-bg-surface`
+### 3. ~~`--tk-anim-default-easing` defined but unused~~ **(Resolved)**
 
-**Problem:** `theme.css` line 40: `--tk-focus-ring-alt: var(--tk-bg-surface)` — `--tk-bg-surface` is not defined anywhere in the framework.
-
-**Suggested fix:** Either define `--tk-bg-surface` (aliased to an existing bg level like `--tk-bg-4x`) or remove the variable if unused.
-
-### 3. `--tk-anim-default-easing` defined but unused
-
-**Problem:** `animation.css` defines `--tk-anim-default-easing` but all style files reference `--tk-ease` directly instead. The variable is dead code.
-
-**Suggested fix:** Either remove `--tk-anim-default-easing` if it has no purpose, or replace all `var(--tk-ease)` references with `var(--tk-anim-default-easing)` to centralize the easing source of truth.
+**Fix:** Removed the dead `--tk-anim-default-easing` declaration from `animation.css`. All style files use `--tk-ease` directly.
 
 ### 4. Non-widely-available CSS in reset
 

@@ -798,10 +798,6 @@
     --tk-bg-origin-border: border-box;
     --tk-bg-origin-padding: padding-box;
     --tk-bg-origin-content: content-box;
-    --tk-anim-default-easing: cubic-bezier(.25,
-        .46,
-        .45,
-        .94);
     --tk-duration-xs: .1s;
     --tk-duration-sm: .35s;
     --tk-duration-md: .8s;
@@ -870,49 +866,25 @@
     --tk-transition-transform: transform .4s var(--tk-ease);
     --tk-transition-box-shadow: box-shadow .4s var(--tk-ease);
     color-scheme: light dark;
-    --tk-bg-5x: var(--tk-color-theme-5xlight);
-    --tk-bg-4x: var(--tk-color-theme-4xlight);
-    --tk-bg-3x: var(--tk-color-theme-3xlight);
-    --tk-bg-2x: var(--tk-color-theme-2xlight);
-    --tk-bg-1x: var(--tk-color-theme-1xlight);
-    --tk-bg-success: var(--tk-color-success-4xlight);
-    --tk-bg-warning: var(--tk-color-warning-4xlight);
-    --tk-bg-error: var(--tk-color-error-4xlight);
-    --tk-bg-info: var(--tk-color-info-4xlight);
-    --tk-fg-5x: var(--tk-color-theme-5xdark);
-    --tk-fg-4x: var(--tk-color-theme-4xdark);
-    --tk-fg-3x: var(--tk-color-theme-3xdark);
-    --tk-fg-2x: var(--tk-color-theme-2xdark);
-    --tk-fg-1x: var(--tk-color-theme-1xdark);
-    --tk-fg-success: var(--tk-color-success-2xdark);
-    --tk-fg-info: var(--tk-color-info-2xdark);
-    --tk-fg-warning: var(--tk-color-warning-3xdark);
-    --tk-fg-error: var(--tk-color-error-2xdark);
+    --tk-bg-5x: light-dark(var(--tk-color-theme-5xlight), var(--tk-color-theme-5xdark));
+    --tk-bg-4x: light-dark(var(--tk-color-theme-4xlight), var(--tk-color-theme-4xdark));
+    --tk-bg-3x: light-dark(var(--tk-color-theme-3xlight), var(--tk-color-theme-3xdark));
+    --tk-bg-2x: light-dark(var(--tk-color-theme-2xlight), var(--tk-color-theme-2xdark));
+    --tk-bg-1x: light-dark(var(--tk-color-theme-1xlight), var(--tk-color-theme-1xdark));
+    --tk-bg-success: light-dark(var(--tk-color-success-4xlight), var(--tk-color-success-4xdark));
+    --tk-bg-warning: light-dark(var(--tk-color-warning-4xlight), var(--tk-color-warning-4xdark));
+    --tk-bg-error: light-dark(var(--tk-color-error-4xlight), var(--tk-color-error-4xdark));
+    --tk-bg-info: light-dark(var(--tk-color-info-4xlight), var(--tk-color-info-4xdark));
+    --tk-fg-5x: light-dark(var(--tk-color-theme-5xdark), var(--tk-color-theme-5xlight));
+    --tk-fg-4x: light-dark(var(--tk-color-theme-4xdark), var(--tk-color-theme-4xlight));
+    --tk-fg-3x: light-dark(var(--tk-color-theme-3xdark), var(--tk-color-theme-3xlight));
+    --tk-fg-2x: light-dark(var(--tk-color-theme-2xdark), var(--tk-color-theme-2xlight));
+    --tk-fg-1x: light-dark(var(--tk-color-theme-1xdark), var(--tk-color-theme-1xlight));
+    --tk-fg-success: light-dark(var(--tk-color-success-2xdark), var(--tk-color-success-2xlight));
+    --tk-fg-info: light-dark(var(--tk-color-info-2xdark), var(--tk-color-info-2xlight));
+    --tk-fg-warning: light-dark(var(--tk-color-warning-3xdark), var(--tk-color-warning-2xlight));
+    --tk-fg-error: light-dark(var(--tk-color-error-2xdark), var(--tk-color-error-2xlight));
     --tk-focus-ring: var(--tk-color-primary);
-    --tk-focus-ring-alt: var(--tk-bg-surface);
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --tk-bg-5x: var(--tk-color-theme-5xdark);
-      --tk-bg-4x: var(--tk-color-theme-4xdark);
-      --tk-bg-3x: var(--tk-color-theme-3xdark);
-      --tk-bg-2x: var(--tk-color-theme-2xdark);
-      --tk-bg-1x: var(--tk-color-theme-1xdark);
-      --tk-bg-success: var(--tk-color-success-4xdark);
-      --tk-bg-warning: var(--tk-color-warning-4xdark);
-      --tk-bg-error: var(--tk-color-error-4xdark);
-      --tk-bg-info: var(--tk-color-info-4xdark);
-      --tk-fg-5x: var(--tk-color-theme-5xlight);
-      --tk-fg-4x: var(--tk-color-theme-4xlight);
-      --tk-fg-3x: var(--tk-color-theme-3xlight);
-      --tk-fg-2x: var(--tk-color-theme-2xlight);
-      --tk-fg-1x: var(--tk-color-theme-1xlight);
-      --tk-fg-success: var(--tk-color-success-2xlight);
-      --tk-fg-info: var(--tk-color-info-2xlight);
-      --tk-fg-warning: var(--tk-color-warning-2xlight);
-      --tk-fg-error: var(--tk-color-error-2xlight);
-    }
   }
 
   [data-theme="light"] {
