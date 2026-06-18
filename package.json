@@ -1,8 +1,17 @@
 {
   "name": "tokycss",
-  "private": true,
   "version": "0.1.0",
+  "description": "A design token-first CSS framework for building custom user interfaces with consistency built in",
+  "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tokycss/tokycss.git"
+  },
+  "homepage": "https://tokycss.com",
+  "bugs": {
+    "url": "https://github.com/tokycss/tokycss/issues"
+  },
   "engines": {
     "node": ">=18.0.0"
   },
