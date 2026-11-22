@@ -225,17 +225,20 @@
     --tk-color-info-9a: oklch(from var(--tk-color-info) l c h / var(--_tk-alpha-9));
     --tk-color-info-10a: oklch(from var(--tk-color-info) l c h / var(--_tk-alpha-10));
     --tk-color-shadow: oklch(20% .02 265);
+    --tk-shadow-xs: 0 1px 2px 0 color-mix(in oklch, var(--tk-color-shadow) 5%, transparent);
+    --tk-shadow-sm: 0 1px 3px 0 color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 1px 2px -1px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
+    --tk-shadow-md: 0 4px 6px -1px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 2px 4px -2px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
+    --tk-shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 4px 6px -4px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
+    --tk-shadow-xl: 0 20px 25px -5px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 8px 10px -6px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --tk-screen-xs: 320px;
     --tk-screen-sm: 640px;
     --tk-screen-md: 1024px;
     --tk-screen-lg: 1280px;
     --tk-screen-xl: 1440px;
-    --tk-size-unit: 4px;
-    --tk-size-none: none;
-    --tk-size-0: 0;
     --tk-size-1: 1px;
     --tk-size-2: 2px;
     --tk-size-6: 6px;
+    --tk-size-unit: 4px;
     --tk-size-4: calc(var(--tk-size-unit) * 1);
     --tk-size-8: calc(var(--tk-size-unit) * 2);
     --tk-size-12: calc(var(--tk-size-unit) * 3);
@@ -261,12 +264,20 @@
     --tk-size-92: calc(var(--tk-size-unit) * 23);
     --tk-size-96: calc(var(--tk-size-unit) * 24);
     --tk-size-100: calc(var(--tk-size-unit) * 25);
-    --tk-aspect-ratio-square: 1 / 1;
-    --tk-aspect-ratio-video: 16 / 9;
-    --tk-aspect-ratio-portrait: 3 / 4;
-    --tk-aspect-ratio-landscape: 4 / 3;
-    --tk-aspect-ratio-widescreen: 21 / 9;
-    --tk-aspect-ratio-golden: 1.618 / 1;
+    --tk-radius-xs: 2px;
+    --tk-radius-sm: 4px;
+    --tk-radius-md: 8px;
+    --tk-radius-lg: 12px;
+    --tk-radius-xl: 16px;
+    --tk-radius-full: 9999px;
+    --_tk-btn-bg: var(--tk-color-primary);
+    --_tk-btn-threshold: .65;
+    --tk-square: 1 / 1;
+    --tk-video: 16 / 9;
+    --tk-portrait: 3 / 4;
+    --tk-landscape: 4 / 3;
+    --tk-widescreen: 21 / 9;
+    --tk-golden: 1.618 / 1;
     --_tk-layout-main-width: var(--tk-content-width, 80ch);
     --_tk-layout-breakout-size: var(--tk-breakout-width, 90ch);
     --_tk-layout-gutter-width: var(--tk-page-gutter, var(--tk-size-20));
@@ -284,18 +295,6 @@
     --tk-z-index-md: 100;
     --tk-z-index-lg: 1000;
     --tk-z-index-xl: 10000;
-    --tk-radius-0: var(--tk-size-0);
-    --tk-radius-xs: 2px;
-    --tk-radius-sm: 4px;
-    --tk-radius-md: 8px;
-    --tk-radius-lg: 12px;
-    --tk-radius-xl: 16px;
-    --tk-radius-full: 9999px;
-    --tk-shadow-xs: 0 1px 2px 0 color-mix(in oklch, var(--tk-color-shadow) 5%, transparent);
-    --tk-shadow-sm: 0 1px 3px 0 color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 1px 2px -1px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
-    --tk-shadow-md: 0 4px 6px -1px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 2px 4px -2px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
-    --tk-shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 4px 6px -4px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
-    --tk-shadow-xl: 0 20px 25px -5px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 8px 10px -6px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --_tk-fluid-min-vw: var(--tk-fluid-scale-start, 320);
     --_tk-fluid-max-vw: var(--tk-fluid-scale-end, 1440);
     --_tk-fluid-screen-range: calc(var(--_tk-fluid-max-vw) * 1px - var(--_tk-fluid-min-vw) * 1px);
@@ -888,7 +887,7 @@
     font-family: var(--tk-font-mono);
     font-size: .875em;
     line-height: var(--tk-line-height-md);
-    border: 1px solid var(--tk-theme-4a);
+    border: 1px solid var(--tk-color-theme-4a);
     box-shadow: var(--tk-shadow-sm);
   }
 
@@ -980,7 +979,7 @@
   }
 
   hr {
-    background: var(--tk-theme-4a);
+    background: var(--tk-color-theme-4a);
     height: 1px;
     margin-block: var(--tk-size-8);
     border: none;
@@ -1389,12 +1388,12 @@
   }
 
   nav a:hover {
-    background-color: var(--tk-theme-3a);
+    background-color: var(--tk-color-theme-3a);
   }
 
   nav a[aria-current="page"], nav a[aria-current="true"] {
     color: var(--tk-color-primary-1xdark);
-    background-color: var(--tk-bg-primary-2a);
+    background-color: var(--tk-color-primary-2a);
     font-weight: 600;
   }
 }
@@ -1518,17 +1517,14 @@
 
   .btn--primary {
     --_tk-btn-bg: var(--tk-color-primary);
-    --_tk-btn-threshold: .65;
   }
 
   .btn--secondary {
     --_tk-btn-bg: var(--tk-color-secondary);
-    --_tk-btn-threshold: .65;
   }
 
   .btn--accent {
     --_tk-btn-bg: var(--tk-color-accent);
-    --_tk-btn-threshold: .65;
   }
 
   .btn--primary, .btn--secondary, .btn--accent {

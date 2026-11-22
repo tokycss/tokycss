@@ -8,12 +8,12 @@
    * These variables define common aspect ratios for responsive elements.
    * Useful for maintaining proportional dimensions for images, videos, etc.
    */
-    --tk-aspect-ratio-square: 1 / 1; /* 1:1 ratio (square) */
-    --tk-aspect-ratio-video: 16 / 9; /* 16:9 ratio (standard video) */
-    --tk-aspect-ratio-portrait: 3 / 4; /* 3:4 ratio (portrait) */
-    --tk-aspect-ratio-landscape: 4 / 3; /* 4:3 ratio (landscape) */
-    --tk-aspect-ratio-widescreen: 21 / 9; /* 21:9 ratio (ultrawide) */
-    --tk-aspect-ratio-golden: 1.618 / 1; /* Golden ratio (aesthetically pleasing) */
+    --tk-square: 1 / 1; /* 1:1 ratio (square) */
+    --tk-video: 16 / 9; /* 16:9 ratio (standard video) */
+    --tk-portrait: 3 / 4; /* 3:4 ratio (portrait) */
+    --tk-landscape: 4 / 3; /* 4:3 ratio (landscape) */
+    --tk-widescreen: 21 / 9; /* 21:9 ratio (ultrawide) */
+    --tk-golden: 1.618 / 1; /* Golden ratio (aesthetically pleasing) */
 
     /* ====================================================================== */
         /* GRID SYSTEM                                                            */

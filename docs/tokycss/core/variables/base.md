@@ -24,7 +24,6 @@ A 4px-based spacing scale. The base unit is `--tk-size-unit` (4px). Each size is
 
 | Variable | Value | Variable | Value |
 |---|---|---|---|
-| `--tk-size-none` | none | `--tk-size-0` | 0 |
 | `--tk-size-1` | 1px | `--tk-size-2` | 2px |
 | `--tk-size-6` | 6px | `--tk-size-4` | 4px |
 | `--tk-size-8` | 8px | `--tk-size-12` | 12px |
@@ -47,6 +46,29 @@ Use these for gaps, border-radius, padding, margin, and inset:
   padding: var(--tk-size-24);
   gap: var(--tk-size-8);
   border-radius: var(--tk-size-8);
+}
+```
+
+## Border Radius
+
+Controls the roundness of element corners. This is the only border decision Toky tokenises — it is a design-language choice, not a CSS value.
+
+| Variable | Value | Visual |
+|---|---|---|
+| `--tk-radius-xs` | 2px | Barely visible |
+| `--tk-radius-sm` | 4px | Soft |
+| `--tk-radius-md` | 8px | Standard |
+| `--tk-radius-lg` | 12px | Prominent |
+| `--tk-radius-xl` | 16px | Very rounded |
+| `--tk-radius-full` | 9999px | Fully round (circles/pills) |
+
+```css
+.button {
+  border-radius: var(--tk-radius-sm);
+}
+
+.avatar {
+  border-radius: var(--tk-radius-full);
 }
 ```
 

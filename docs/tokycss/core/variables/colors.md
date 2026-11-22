@@ -61,19 +61,18 @@ Four semantic colors are used for status messaging. Each has the same tint/shade
 
 ## Shadows
 
-Shadow tokens produce layered box-shadow values using the theme hue.
+Shadows are layered values built from the base `--tk-color-shadow`, so every elevation follows light/dark mode automatically.
 
-| Variable | Usage |
+| Variable | Elevation |
 |---|---|
-| `--tk-color-shadow-xs` | Subtle, close shadow |
-| `--tk-color-shadow-sm` | Small shadow |
-| `--tk-color-shadow-md` | Medium shadow |
-| `--tk-color-shadow-lg` | Large shadow |
-| `--tk-color-shadow-xl` | Extra large shadow |
-| `--tk-color-shadow-2xl` | Largest shadow |
+| `--tk-shadow-xs` | Hairline lift |
+| `--tk-shadow-sm` | Subtle card |
+| `--tk-shadow-md` | Raised surface |
+| `--tk-shadow-lg` | Floating panel |
+| `--tk-shadow-xl` | Modal / overlay |
 
 ```css
 .card {
-  box-shadow: var(--tk-color-shadow-md);
+  box-shadow: var(--tk-shadow-sm);
 }
 ```

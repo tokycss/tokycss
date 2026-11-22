@@ -32,20 +32,17 @@
   letter-spacing: -0.01em;
 }
 
-/* ========== 1. YOU SET ========== */
+/* ========== 1. VARIANTS ========== */
 .btn--primary {
   --_tk-btn-bg: var(--tk-color-primary);
-  --_tk-btn-threshold: 0.65; /* when to flip from black to white */
 }
 
 .btn--secondary {
   --_tk-btn-bg: var(--tk-color-secondary);
-  --_tk-btn-threshold: 0.65;
 }
 
 .btn--accent {
   --_tk-btn-bg: var(--tk-color-accent);
-  --_tk-btn-threshold: 0.65;
 }
 
 /* ========== 2. ENGINE ========== */

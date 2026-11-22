@@ -5,6 +5,12 @@
   --tk-screen-lg: 1280px;
   --tk-screen-xl: 1440px;
 
+
+  /* Cutom spacing values */
+  --tk-size-1: 1px;
+  --tk-size-2: 2px;
+  --tk-size-6: 6px;
+
 /*
  * SPACING SYSTEM - 4PX BASED
  *
@@ -13,13 +19,6 @@
  * Scale: 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100
  */
     --tk-size-unit: 4px; /* Base unit for spacing system */
-
-    /* Core spacing values */
-    --tk-size-none: none;
-    --tk-size-0: 0;
-    --tk-size-1: 1px;
-    --tk-size-2: 2px;
-    --tk-size-6: 6px;
 
     /* --- 4px-Based Systematic Scale --- */
     --tk-size-4: calc(var(--tk-size-unit) * 1); /* 4px */
@@ -47,5 +46,30 @@
     --tk-size-92: calc(var(--tk-size-unit) * 23); /* 92px */
     --tk-size-96: calc(var(--tk-size-unit) * 24); /* 96px */
     --tk-size-100: calc(var(--tk-size-unit) * 25); /* 100px */
+
+    /* ====================================================================== */
+    /* BORDER RADIUS                                                          */
+    /* ====================================================================== */
+    /*
+   * Controls the roundness of element corners.
+   * Consistent border radius values create a cohesive design language.
+   */
+    --tk-radius-xs: 2px;
+    --tk-radius-sm: 4px;
+    --tk-radius-md: 8px;
+    --tk-radius-lg: 12px;
+    --tk-radius-xl: 16px;
+    --tk-radius-full: 9999px;
+
+    /* ====================================================================== */
+    /* BUTTON ENGINE                                                          */
+    /* ====================================================================== */
+    /*
+   * Defaults for the auto-contrast button engine in utilities.css.
+   * Variants override --_tk-btn-bg; the threshold decides when the text
+   * flips from dark to light.
+   */
+    --_tk-btn-bg: var(--tk-color-primary);
+    --_tk-btn-threshold: 0.65;
 
 }

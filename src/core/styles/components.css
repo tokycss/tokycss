@@ -138,12 +138,12 @@ nav a {
 }
 
 nav a:hover {
-  background-color: var(--tk-theme-3a);
+  background-color: var(--tk-color-theme-3a);
 }
 
 nav a[aria-current="page"],
 nav a[aria-current="true"] {
   color: var(--tk-color-primary-1xdark);
-  background-color: var(--tk-bg-primary-2a);
+  background-color: var(--tk-color-primary-2a);
   font-weight: 600;
 }

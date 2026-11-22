@@ -93,7 +93,7 @@ samp {
   font-family: var(--tk-font-mono);
   font-size: 0.875em;
   line-height: var(--tk-line-height-md);
-  border: 1px solid var(--tk-theme-4a);
+  border: 1px solid var(--tk-color-theme-4a);
   box-shadow: var(--tk-shadow-sm);
 }
 
@@ -188,7 +188,7 @@ article p{
 hr {
   border: none;
   height: 1px;
-  background: var(--tk-theme-4a);
+  background: var(--tk-color-theme-4a);
   margin-block: var(--tk-size-8);
 }
 

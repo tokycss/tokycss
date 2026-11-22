@@ -47,16 +47,16 @@ A semantic layering scale. The numbers matter less than the order, and the token
 
 | Variable | Value |
 |---|---|
-| `--tk-aspect-ratio-square` | 1 / 1 |
-| `--tk-aspect-ratio-video` | 16 / 9 |
-| `--tk-aspect-ratio-portrait` | 3 / 4 |
-| `--tk-aspect-ratio-landscape` | 4 / 3 |
-| `--tk-aspect-ratio-widescreen` | 21 / 9 |
-| `--tk-aspect-ratio-golden` | 1.618 / 1 |
+| `--tk-square` | 1 / 1 |
+| `--tk-video` | 16 / 9 |
+| `--tk-portrait` | 3 / 4 |
+| `--tk-landscape` | 4 / 3 |
+| `--tk-widescreen` | 21 / 9 |
+| `--tk-golden` | 1.618 / 1 |
 
 ```css
 .thumbnail {
-  aspect-ratio: var(--tk-aspect-ratio-video);
+  aspect-ratio: var(--tk-video);
 }
 ```
 
