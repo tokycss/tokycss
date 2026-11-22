@@ -26,6 +26,7 @@ npm run build   # builds dist files
 ## Code Style
 
 - CSS follows the existing conventions in `src/` — comments, formatting, variable naming
+- Variable naming: public tokens use the `--tk-` prefix. Framework internals (engine math, the fluid formula, component-private state) use `--_tk-` and are not part of the public API
 - Run `npm run lint` and `npm run stylelint` before committing
 - The project uses Prettier and ESLint — formatting is enforced
 

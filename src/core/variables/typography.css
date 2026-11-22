@@ -10,23 +10,23 @@
   /* --- Global Configuration --- */
   /* Set the viewport widths where fluid scaling should start and stop. */
   /* Fluid viewport range */
-  --fluid-min-vw: var(--tk-fluid-scale-start, 320);
-  --fluid-max-vw: var(--tk-fluid-scale-end, 1440);
-  --fluid-screen-range: calc(var(--fluid-max-vw) * 1px - var(--fluid-min-vw) * 1px);
+  --_tk-fluid-min-vw: var(--tk-fluid-scale-start, 320);
+  --_tk-fluid-max-vw: var(--tk-fluid-scale-end, 1440);
+  --_tk-fluid-screen-range: calc(var(--_tk-fluid-max-vw) * 1px - var(--_tk-fluid-min-vw) * 1px);
 
 
   /*
    * Unitless interpolation factor:
-   *   0 at --fluid-min-vw
-   *   1 at --fluid-max-vw
+   *   0 at --_tk-fluid-min-vw
+   *   1 at --_tk-fluid-max-vw
    *
    * The factor is intentionally unitless because it is used
    * to scale the rem length difference between each type scale's
    * minimum and maximum values.
    */
-  --fluid-rem-factor: calc(
-    (100vw - var(--fluid-min-vw) * 1px) /
-    var(--fluid-screen-range)
+  --_tk-fluid-rem-factor: calc(
+    (100vw - var(--_tk-fluid-min-vw) * 1px) /
+    var(--_tk-fluid-screen-range)
   );
 
 
@@ -40,7 +40,7 @@
    *
    * Because both endpoints are rem lengths, the result is also
    * a rem length. Multiplying that length by the unitless
-   * --fluid-rem-factor produces a valid CSS length.
+   * --_tk-fluid-rem-factor produces a valid CSS length.
    *
    * Formula:
    *
@@ -59,7 +59,7 @@
     calc(
       var(--tk-text-xs-min) +
       (var(--tk-text-xs-max) - var(--tk-text-xs-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-xs-max)
   );
@@ -73,7 +73,7 @@
     calc(
       var(--tk-text-sm-min) +
       (var(--tk-text-sm-max) - var(--tk-text-sm-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-sm-max)
   );
@@ -87,7 +87,7 @@
     calc(
       var(--tk-text-md-min) +
       (var(--tk-text-md-max) - var(--tk-text-md-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-md-max)
   );
@@ -101,7 +101,7 @@
     calc(
       var(--tk-text-lg-min) +
       (var(--tk-text-lg-max) - var(--tk-text-lg-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-lg-max)
   );
@@ -115,7 +115,7 @@
     calc(
       var(--tk-text-xl-min) +
       (var(--tk-text-xl-max) - var(--tk-text-xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-xl-max)
   );
@@ -129,7 +129,7 @@
     calc(
       var(--tk-text-2xl-min) +
       (var(--tk-text-2xl-max) - var(--tk-text-2xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-2xl-max)
   );
@@ -143,7 +143,7 @@
     calc(
       var(--tk-text-3xl-min) +
       (var(--tk-text-3xl-max) - var(--tk-text-3xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-3xl-max)
   );
@@ -157,7 +157,7 @@
     calc(
       var(--tk-text-4xl-min) +
       (var(--tk-text-4xl-max) - var(--tk-text-4xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-4xl-max)
   );
@@ -171,7 +171,7 @@
     calc(
       var(--tk-text-5xl-min) +
       (var(--tk-text-5xl-max) - var(--tk-text-5xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-5xl-max)
   );
@@ -185,7 +185,7 @@
     calc(
       var(--tk-text-6xl-min) +
       (var(--tk-text-6xl-max) - var(--tk-text-6xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-6xl-max)
   );
@@ -199,7 +199,7 @@
     calc(
       var(--tk-text-7xl-min) +
       (var(--tk-text-7xl-max) - var(--tk-text-7xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-7xl-max)
   );
@@ -213,7 +213,7 @@
     calc(
       var(--tk-text-8xl-min) +
       (var(--tk-text-8xl-max) - var(--tk-text-8xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-8xl-max)
   );
@@ -227,7 +227,7 @@
     calc(
       var(--tk-text-9xl-min) +
       (var(--tk-text-9xl-max) - var(--tk-text-9xl-min)) *
-      var(--fluid-rem-factor)
+      var(--_tk-fluid-rem-factor)
     ),
     var(--tk-text-9xl-max)
   );
