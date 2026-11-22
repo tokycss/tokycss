@@ -20,8 +20,8 @@ Font smoothing, text-rendering, and `text-size-adjust` are set on `:root` for co
 
 ```css
 body {
-  background-color: var(--tk-bg-5x);
-  color: var(--tk-fg-4x);
+  background-color: var(--tk-bg-theme-5x);
+  color: var(--tk-fg-theme-4x);
   font-family: var(--tk-font-body);
   font-size: var(--tk-text-md);
   line-height: var(--tk-line-height-md);

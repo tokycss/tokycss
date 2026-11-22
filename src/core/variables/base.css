@@ -1,6 +1,6 @@
 :root{
-  --tk-screen-xs: 480px;
-  --tk-screen-sm: 768px;
+  --tk-screen-xs: 320px;
+  --tk-screen-sm: 640px;
   --tk-screen-md: 1024px;
   --tk-screen-lg: 1280px;
   --tk-screen-xl: 1440px;
@@ -24,11 +24,6 @@
 --tk-value-currentcolor: currentColor;
 --tk-value-transparent: transparent;
 --tk-value-0: 0;
-/* Content-based Sizing */
---tk-value-fit-content: fit-content; /* Size based on content with constraints */
---tk-value-min-content: min-content; /* Smallest size that fits content */
---tk-value-max-content: max-content; /* Largest size needed for content */
-
 
     /* ====================================================================== */
     /* CURSOR SYSTEM                                                          */
@@ -271,4 +266,51 @@
     --tk-will-change-transform: transform; /* Optimize for transform changes */
     --tk-will-change-opacity: opacity; /* Optimize for opacity changes */
     --tk-will-change-scroll: scroll-position; /* Optimize for scroll changes */
-}
+
+
+    /* ====================================================================== */
+    /* BACKGROUND SYSTEM                                                       */
+    /* ====================================================================== */
+
+    /*
+   * Background Properties
+   *
+   * These variables define common background property values for consistent usage.
+   * Background properties control how backgrounds are displayed.
+   */
+
+    /* Background Repeat */
+    --tk-bg-none: none; /* No background image */
+    --tk-bg-repeat: repeat; /* Repeat in both directions */
+    --tk-bg-no-repeat: no-repeat; /* No repetition */
+    --tk-bg-repeat-x: repeat-x; /* Repeat horizontally only */
+    --tk-bg-repeat-y: repeat-y; /* Repeat vertically only */
+
+    /* Background Attachment */
+    --tk-bg-fixed: fixed; /* Fixed to viewport */
+    --tk-bg-local: local; /* Scrolls with content */
+    --tk-bg-scroll: scroll; /* Scrolls with element */
+
+    /* Background Clip */
+    --tk-bg-clip-border: border-box; /* Extend to outer border edge */
+    --tk-bg-clip-padding: padding-box; /* Extend to outer padding edge */
+    --tk-bg-clip-content: content-box; /* Extend to content edge */
+
+    /* Background Position */
+    --tk-bg-position-center: center; /* Center alignment */
+    --tk-bg-position-top: top; /* Top alignment */
+    --tk-bg-position-bottom: bottom; /* Bottom alignment */
+    --tk-bg-position-left: left; /* Left alignment */
+    --tk-bg-position-right: right; /* Right alignment */
+
+    /* Background Size */
+    --tk-bg-size-cover: cover; /* Cover the area */
+    --tk-bg-size-contain: contain; /* Contain the area */
+
+    /* Background Origin */
+    --tk-bg-origin-border: border-box; /* Extend to outer border edge */
+    --tk-bg-origin-padding: padding-box; /* Extend to outer padding edge */
+    --tk-bg-origin-content: content-box; /* Extend to content edge */
+
+
+    }

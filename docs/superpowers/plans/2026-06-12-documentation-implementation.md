@@ -226,8 +226,8 @@ Content outline:
 - **Semantic tokens** map design tokens to contextual roles (backgrounds, foregrounds).
 - **Strategy:** In light mode backgrounds use tints and foregrounds use shades; dark mode inverts this.
 - **Automatic dark mode** via `@media (prefers-color-scheme: dark)`.
-- **Backgrounds:** `--tk-bg-5x` (lightest) through `--tk-bg-1x` (darkest). Status backgrounds: `--tk-bg-success`, `--tk-bg-warning`, `--tk-bg-error`, `--tk-bg-info`.
-- **Foregrounds:** `--tk-fg-5x` (darkest/highest contrast) through `--tk-fg-1x` (lightest/lowest contrast). Status foregrounds: `--tk-fg-success`, `--tk-fg-warning`, `--tk-fg-error`, `--tk-fg-info`.
+- **Backgrounds:** `--tk-bg-theme-5x` (lightest) through `--tk-bg-theme-1x` (darkest). Status backgrounds: `--tk-bg-success`, `--tk-bg-warning`, `--tk-bg-error`, `--tk-bg-info`.
+- **Foregrounds:** `--tk-fg-theme-5x` (darkest/highest contrast) through `--tk-fg-theme-1x` (lightest/lowest contrast). Status foregrounds: `--tk-fg-success`, `--tk-fg-warning`, `--tk-fg-error`, `--tk-fg-info`.
 - **Focus:** `--tk-focus-ring`, `--tk-focus-ring-alt`.
 - **Manual override:** `[data-theme="light"]` and `[data-theme="dark"]`.
 

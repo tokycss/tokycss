@@ -175,37 +175,37 @@
          * Use 'ch' for readability, or a fixed unit like 'rem' or 'px' for design precision.
          * Example: 70ch (ideal for articles), 80rem (for a 1280px container).
          */
-        --tk-layout-main-width: var(--tk-content-width, 80ch);
+        --_tk-layout-main-width: var(--tk-content-width, 80ch);
 
         /*
          * Sets the secondary, larger breakout size, extending beyond the 'main' lane.
          * Example: 90rem, 1200px, etc.
          */
-        --tk-layout-fill-width: var(--tk-content-fill-width, 90ch);
+        --_tk-layout-breakout-size: var(--tk-breakout-width, 90ch);
 
         /*
          * Defines the minimum gutter space on the left and right sides of the page.
          * This also acts as the default padding on mobile devices.
          */
-        --tk-layout-gutter-width: var(--tk-page-gutter, var(--tk-size-20));
+        --_tk-layout-gutter-width: var(--tk-page-gutter, var(--tk-size-20));
 
         /* --- Grid Definition (Framework Internals - Do Not Edit) --- */
         /*
          * This variable calculates the exact width of a single breakout track
          * by subtracting the main width from the total fill width and dividing by two.
          */
-        --tk-layout-breakout-size: calc((var(--tk-layout-fill-width) - var(--tk-layout-main-width)) / 2);
+        --_tk-layout-breakout-width: calc((var(--_tk-layout-breakout-size) - var(--_tk-layout-main-width)) / 2);
 
         /*
          * The master grid template.
          */
-         --tk-layout-grid:
+         --_tk-layout-grid:
                  [full-start] 1fr
-                 [gutter-start] var(--tk-layout-gutter-width) [gutter-end fill-start]
-                 minmax(0, var(--tk-layout-breakout-size)) [main-start]
-                 min(100% - (var(--tk-layout-gutter-width) * 2), var(--tk-layout-main-width)) [main-end]
-                 minmax(0, var(--tk-layout-breakout-size)) [fill-end gutter-start]
-                 var(--tk-layout-gutter-width) [gutter-end]
+                 [gutter-start] var(--_tk-layout-gutter-width) [gutter-end breakout-start]
+                 minmax(0, var(--_tk-layout-breakout-width)) [main-start]
+                 min(100% - (var(--_tk-layout-gutter-width) * 2), var(--_tk-layout-main-width)) [main-end]
+                 minmax(0, var(--_tk-layout-breakout-width)) [breakout-end gutter-start]
+                 var(--_tk-layout-gutter-width) [gutter-end]
                  1fr [full-end];
 
         /* END OF THE PAGE GRID LAYOUT ENGINE */
@@ -249,7 +249,6 @@
     /* GAP SYSTEM                                                             */
     /* ====================================================================== */
 
-    --tk-gap-0: 0;
     --tk-gap-xs: 2px;
     --tk-gap-sm: 4px;
     --tk-gap-md: 8px;
@@ -261,7 +260,6 @@
     /* ====================================================================== */
 
     --tk-z-index-auto: auto;
-    --tk-z-index-0: 0;
     --tk-z-index-xs: 1;
     --tk-z-index-sm: 10;
     --tk-z-index-md: 100;

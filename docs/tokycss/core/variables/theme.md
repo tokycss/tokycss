@@ -13,7 +13,7 @@ background: var(--tk-color-theme-5xlight);
 Use:
 
 ```css
-background: var(--tk-bg-5x);
+background: var(--tk-bg-theme-5x);
 ```
 
 Toky CSS handles the theme mapping automatically, allowing the same component styles to work across light mode, dark mode, and custom theme overrides without additional styling.
@@ -85,21 +85,21 @@ Background tokens define the visual hierarchy of surfaces.
 
 | Variable     | Recommended Usage                                     |
 | ------------ | ----------------------------------------------------- |
-| `--tk-bg-1x` | Active states, pressed states, high-emphasis surfaces |
-| `--tk-bg-2x` | Inputs, hover states, subtle UI elements              |
-| `--tk-bg-3x` | Nested surfaces, cards inside sections                |
-| `--tk-bg-4x` | Sections, cards, low-contrast surfaces                |
-| `--tk-bg-5x` | Page background, application shell, base layer        |
+| `--tk-bg-theme-1x` | Active states, pressed states, high-emphasis surfaces |
+| `--tk-bg-theme-2x` | Inputs, hover states, subtle UI elements              |
+| `--tk-bg-theme-3x` | Nested surfaces, cards inside sections                |
+| `--tk-bg-theme-4x` | Sections, cards, low-contrast surfaces                |
+| `--tk-bg-theme-5x` | Page background, application shell, base layer        |
 
 ### Theme Mapping
 
 | Variable     | Light Mode | Dark Mode |
 | ------------ | ---------- | --------- |
-| `--tk-bg-1x` | 1st tint   | 1st shade |
-| `--tk-bg-2x` | 2nd tint   | 2nd shade |
-| `--tk-bg-3x` | 3rd tint   | 3rd shade |
-| `--tk-bg-4x` | 4th tint   | 4th shade |
-| `--tk-bg-5x` | 5th tint   | 5th shade |
+| `--tk-bg-theme-1x` | 1st tint   | 1st shade |
+| `--tk-bg-theme-2x` | 2nd tint   | 2nd shade |
+| `--tk-bg-theme-3x` | 3rd tint   | 3rd shade |
+| `--tk-bg-theme-4x` | 4th tint   | 4th shade |
+| `--tk-bg-theme-5x` | 5th tint   | 5th shade |
 
 ---
 
@@ -119,21 +119,21 @@ Foreground tokens control text, icons, borders, and other content.
 
 | Variable     | Recommended Usage                        |
 | ------------ | ---------------------------------------- |
-| `--tk-fg-1x` | Decorative content, low-emphasis details |
-| `--tk-fg-2x` | Muted text and icons                     |
-| `--tk-fg-3x` | Secondary text                           |
-| `--tk-fg-4x` | Primary text                             |
-| `--tk-fg-5x` | Highest contrast text and icons          |
+| `--tk-fg-theme-1x` | Decorative content, low-emphasis details |
+| `--tk-fg-theme-2x` | Muted text and icons                     |
+| `--tk-fg-theme-3x` | Secondary text                           |
+| `--tk-fg-theme-4x` | Primary text                             |
+| `--tk-fg-theme-5x` | Highest contrast text and icons          |
 
 ### Theme Mapping
 
 | Variable     | Light Mode | Dark Mode |
 | ------------ | ---------- | --------- |
-| `--tk-fg-1x` | 1st shade  | 1st tint  |
-| `--tk-fg-2x` | 2nd shade  | 2nd tint  |
-| `--tk-fg-3x` | 3rd shade  | 3rd tint  |
-| `--tk-fg-4x` | 4th shade  | 4th tint  |
-| `--tk-fg-5x` | 5th shade  | 5th tint  |
+| `--tk-fg-theme-1x` | 1st shade  | 1st tint  |
+| `--tk-fg-theme-2x` | 2nd shade  | 2nd tint  |
+| `--tk-fg-theme-3x` | 3rd shade  | 3rd tint  |
+| `--tk-fg-theme-4x` | 4th shade  | 4th tint  |
+| `--tk-fg-theme-5x` | 5th shade  | 5th tint  |
 
 ---
 

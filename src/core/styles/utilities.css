@@ -1,18 +1,111 @@
 /* TOKY CSS — UTILITIES */
-.btn--sm {
-  padding: 0.375rem 0.75rem;
+.btn--xs {
+  padding: 0.25rem 0.625rem; /* 4px / 10px - compact pill */
+  min-height: 1.75rem; /* 28px */
   font-size: var(--tk-text-xs);
+  letter-spacing: 0.01em;
 }
-
+.btn--sm {
+  padding: 0.375rem 0.875rem; /* 6px / 14px */
+  min-height: 2rem; /* 32px */
+  font-size: var(--tk-text-sm);
+}
 .btn--md {
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.125rem; /* 8px / 18px - was too tall */
+  min-height: 2.5rem; /* 40px - ideal default */
   font-size: var(--tk-text-md);
 }
-
 .btn--lg {
-  padding: 1rem 2rem ;
-  font-size: var(--tk-text-lg) ;
+  padding: 0.625rem 1.375rem; /* 10px / 22px */
+  min-height: 2.75rem; /* 44px */
+  font-size: var(--tk-text-lg);
 }
+.btn--xl {
+  padding: 0.75rem 1.625rem; /* 12px / 26px */
+  min-height: 3rem; /* 48px */
+  font-size: var(--tk-text-xl);
+  letter-spacing: -0.01em;
+}
+
+/* ========== 1. YOU SET ========== */
+.btn--primary {
+  --tk-btn-bg: var(--tk-color-primary);
+  --tk-btn-threshold: 0.65; /* when to flip from black to white */
+}
+
+.btn--secondary {
+  --tk-btn-bg: var(--tk-color-secondary);
+  --tk-btn-threshold: 0.65;
+}
+
+.btn--accent {
+  --tk-btn-bg: var(--tk-color-accent);
+  --tk-btn-threshold: 0.65;
+}
+
+/* ========== 2. ENGINE ========== */
+.btn--primary,
+.btn--secondary,
+.btn--accent {
+  background: var(--tk-btn-bg);
+  /* 
+    --_is-dark = 0 on light bg, 1 on dark bg
+    l = lightness of bg (0=black, 1=white)
+    light bg l=0.9: (0.9-0.65)*-1000 = -250 => clamp to 0
+    dark bg l=0.2: (0.2-0.65)*-1000 = 450 => clamp to 1
+  */
+  --_is-dark: clamp(0, (l - var(--tk-btn-threshold)) * -1000, 1);
+  /* 
+    Text = same hue as bg, but lightness flipped + chroma reduced for readability
+    Light bg -> --_is-dark=0 -> l=0.18 (almost black tinted with primary hue)
+    Dark bg  -> --_is-dark=1 -> l=0.97 (almost white tinted with primary hue)
+    c = 20% of bg's chroma so it's tinted, not full saturated primary
+    h = hue from bg
+  */
+  color: oklch(from var(--tk-btn-bg)
+    calc((1 - var(--_is-dark)) * 0.18 + var(--_is-dark) * 0.97)
+    calc(c * 0.22)
+    h
+  );
+}
+
+.btn--theme {
+  background: var(--tk-bg-theme-5x);
+  color: var(--tk-fg-theme-5x);
+}
+
+.btn--dark {
+  background: var(--tk-color-theme-5xdark);
+  color: var(--tk-color-theme-5xlight);
+}
+
+.btn--light {
+  background: var(--tk-color-theme-5xlight);
+  color: var(--tk-color-theme-5xdark);
+}
+
+/* status */
+.btn--success {
+    background: var(--tk-bg-success-3x);
+    color: var(--tk-color-theme-5xlight);
+}
+
+.btn--info {
+    background: var(--tk-bg-info-3x);
+    color: var(--tk-color-theme-5xlight);
+}
+
+.btn--warning {
+    background: var(--tk-bg-warning-3x);
+    color: var(--tk-color-theme-5xdark);
+}
+
+.btn--error {
+    background: var(--tk-bg-error-3x);
+    color: var(--tk-color-theme-5xlight);
+}
+
+
 
 [aria-busy="true"] {
   cursor: progress;

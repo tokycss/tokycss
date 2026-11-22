@@ -7,16 +7,13 @@ input[type="reset"],
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--tk-size-2);
-  padding: 0.625rem var(--tk-size-24);
-  font-size: var(--tk-text-sm);
-  font-weight: var(--tk-font-weight-600);
-  line-height: 1.4;
+  vertical-align: middle;
+  gap: var(--tk-size-8);
+  line-height: 1;
   white-space: var(--tk-whitespace-nowrap);
-  border-radius: var(--tk-size-8);
+  border-radius: var(--tk-size-4);
   cursor: var(--tk-cursor-pointer);
   user-select: var(--tk-user-select-none);
-  border: 1px solid transparent;
   /* Prevent text selection and improve touch targets */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -52,23 +49,23 @@ table {
 }
 
 thead {
-  background-color: var(--tk-color-theme-4xlight);
-  border-bottom: 2px solid var(--tk-fg-4x);
+  background-color: var(--tk-bg-theme-4x);
+  border-bottom: 2px solid var(--tk-fg-theme-4x);
 }
 
 th {
-  padding: var(--tk-size-4) var(--tk-size-12);
+  padding: var(--tk-size-16);
   font-weight: var(--tk-font-weight-700);
   font-size: var(--tk-text-xs);
   text-transform: var(--tk-text-transform-uppercase);
   letter-spacing: 0.06em;
-  color: var(--tk-fg-2x);
+  color: var(--tk-fg-theme-2x);
 }
 
 td {
   padding: var(--tk-size-4) var(--tk-size-12);
-  color: var(--tk-fg-5x);
-  border-bottom: 1px solid var(--tk-bg-2x);
+  color: var(--tk-fg-theme-5x);
+  border-bottom: 1px solid var(--tk-bg-theme-2x);
 }
 
 tbody tr {
@@ -86,7 +83,7 @@ tbody tr:last-child td {
 caption {
   padding: var(--tk-size-4) var(--tk-size-12);
   font-size: var(--tk-text-sm);
-  color: var(--tk-fg-4x);
+  color: var(--tk-fg-theme-4x);
   text-align: var(--tk-text-left);
   caption-side: bottom;
 }
@@ -96,8 +93,8 @@ dialog {
   border: var(--tk-border-none);
   border-radius: var(--tk-radius-sm);
   padding: var(--tk-size-48);
-  background-color: var(--tk-bg-4x);
-  color: var(--tk-fg-4x);
+  background-color: var(--tk-bg-theme-4x);
+  color: var(--tk-fg-theme-4x);
   box-shadow: var(--tk-shadow-lg);
   max-width: min(90vw, 32rem);
   width: 100%;
@@ -127,22 +124,13 @@ dialog[open] {
   }
 }
 
-/* Nav */
-nav ul {
-  display: flex;
-  align-items: center;
-  gap: var(--tk-size-4);
-}
-
 nav a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: var(--tk-size-4);
-  padding: var(--tk-size-2) var(--tk-size-4);
+  gap: var(--tk-size-8);
+  padding: var(--tk-size-4);
   font-size: var(--tk-text-sm);
-  font-weight: var(--tk-font-weight-500);
-  color: var(--tk-fg-2x);
-  border-radius: var(--tk-size-8);
+  border-radius: var(--tk-size-4);
   text-decoration: var(--tk-value-none);
   transition:
     color var(--tk-duration-xs) var(--tk-ease),
@@ -150,13 +138,12 @@ nav a {
 }
 
 nav a:hover {
-  color: var(--tk-fg-5x);
-  background-color: var(--tk-color-theme-3a);
+  background-color: var(--tk-theme-3a);
 }
 
 nav a[aria-current="page"],
 nav a[aria-current="true"] {
   color: var(--tk-color-primary-1xdark);
-  background-color: var(--tk-color-primary-2a);
+  background-color: var(--tk-bg-primary-2a);
   font-weight: var(--tk-font-weight-600);
 }

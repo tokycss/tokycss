@@ -14,10 +14,7 @@ Add both stylesheets to the `<head>` of your document.
 <link rel="stylesheet" href="styleguide.css" />
 
 <!-- Toky CSS -->
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/tokycss@0.1/dist/toky.min.css"
-/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tokycss/tokycss@latest/dist/toky.css" crossorigin="anonymous" />
 ```
 
 Your styleguide loads first and defines your project's design decisions.

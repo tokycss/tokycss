@@ -1,6 +1,6 @@
 # Introduction
 
-Toky CSS is a token-first CSS framework for building custom user interfaces with consistency built in.
+Toky CSS is a desgin token-first CSS framework for building custom user interfaces with consistency built in.
 
 The name **Toky** comes from **tokens**. Toky CSS is built around CSS variable tokens that define colors, typography, spacing, layout, theming, and other design decisions in a predictable way.
 

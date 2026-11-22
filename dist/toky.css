@@ -225,8 +225,8 @@
     --tk-color-info-9a: oklch(from var(--tk-color-info) l c h / var(--tk-alpha-9));
     --tk-color-info-10a: oklch(from var(--tk-color-info) l c h / var(--tk-alpha-10));
     --tk-color-shadow: oklch(20% .02 265);
-    --tk-screen-xs: 480px;
-    --tk-screen-sm: 768px;
+    --tk-screen-xs: 320px;
+    --tk-screen-sm: 640px;
     --tk-screen-md: 1024px;
     --tk-screen-lg: 1280px;
     --tk-screen-xl: 1440px;
@@ -239,9 +239,6 @@
     --tk-value-currentcolor: currentColor;
     --tk-value-transparent: transparent;
     --tk-value-0: 0;
-    --tk-value-fit-content: fit-content;
-    --tk-value-min-content: min-content;
-    --tk-value-max-content: max-content;
     --tk-cursor-auto: auto;
     --tk-cursor-default: default;
     --tk-cursor-pointer: pointer;
@@ -375,6 +372,27 @@
     --tk-will-change-transform: transform;
     --tk-will-change-opacity: opacity;
     --tk-will-change-scroll: scroll-position;
+    --tk-bg-none: none;
+    --tk-bg-repeat: repeat;
+    --tk-bg-no-repeat: no-repeat;
+    --tk-bg-repeat-x: repeat-x;
+    --tk-bg-repeat-y: repeat-y;
+    --tk-bg-fixed: fixed;
+    --tk-bg-local: local;
+    --tk-bg-scroll: scroll;
+    --tk-bg-clip-border: border-box;
+    --tk-bg-clip-padding: padding-box;
+    --tk-bg-clip-content: content-box;
+    --tk-bg-position-center: center;
+    --tk-bg-position-top: top;
+    --tk-bg-position-bottom: bottom;
+    --tk-bg-position-left: left;
+    --tk-bg-position-right: right;
+    --tk-bg-size-cover: cover;
+    --tk-bg-size-contain: contain;
+    --tk-bg-origin-border: border-box;
+    --tk-bg-origin-padding: padding-box;
+    --tk-bg-origin-content: content-box;
     --tk-position-static: static;
     --tk-position-relative: relative;
     --tk-position-absolute: absolute;
@@ -600,23 +618,102 @@
     --tk-shadow-md: 0 4px 6px -1px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 2px 4px -2px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --tk-shadow-lg: 0 10px 15px -3px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 4px 6px -4px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
     --tk-shadow-xl: 0 20px 25px -5px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent), 0 8px 10px -6px color-mix(in oklch, var(--tk-color-shadow) 10%, transparent);
-    --fluid-min-vw: var(--tk-fluid-scale-start, 480);
+    --fluid-min-vw: var(--tk-fluid-scale-start, 320);
     --fluid-max-vw: var(--tk-fluid-scale-end, 1440);
-    --fluid-screen-range: calc(var(--fluid-max-vw) - var(--fluid-min-vw));
-    --fluid-rem-factor: calc((100vw - var(--fluid-min-vw) * 1px) / var(--fluid-screen-range));
-    --tk-text-xs: clamp(.75rem, calc(.75rem + (14 - 12) * var(--fluid-rem-factor)), .875rem);
-    --tk-text-sm: clamp(.875rem, calc(.875rem + (16 - 14) * var(--fluid-rem-factor)), 1rem);
-    --tk-text-md: clamp(1rem, calc(1rem + (18 - 16) * var(--fluid-rem-factor)), 1.125rem);
-    --tk-text-lg: clamp(1.125rem, calc(1.125rem + (20 - 18) * var(--fluid-rem-factor)), 1.25rem);
-    --tk-text-xl: clamp(1.25rem, calc(1.25rem + (24 - 20) * var(--fluid-rem-factor)), 1.5rem);
-    --tk-text-2xl: clamp(1.5rem, calc(1.5rem + (32 - 24) * var(--fluid-rem-factor)), 2rem);
-    --tk-text-3xl: clamp(1.875rem, calc(1.875rem + (40 - 30) * var(--fluid-rem-factor)), 2.5rem);
-    --tk-text-4xl: clamp(2.25rem, calc(2.25rem + (48 - 36) * var(--fluid-rem-factor)), 3rem);
-    --tk-text-5xl: clamp(3rem, calc(3rem + (64 - 48) * var(--fluid-rem-factor)), 4rem);
-    --tk-text-6xl: clamp(3.75rem, calc(3.75rem + (80 - 60) * var(--fluid-rem-factor)), 5rem);
-    --tk-text-7xl: clamp(4.5rem, calc(4.5rem + (96 - 72) * var(--fluid-rem-factor)), 6rem);
-    --tk-text-8xl: clamp(6rem, calc(6rem + (128 - 96) * var(--fluid-rem-factor)), 8rem);
-    --tk-text-9xl: clamp(8rem, calc(8rem + (160 - 128) * var(--fluid-rem-factor)), 10rem);
+    --fluid-screen-range: calc(var(--fluid-max-vw) * 1px - var(--fluid-min-vw) * 1px);
+    --fluid-rem-factor: calc((100vw - var(--fluid-min-vw) * 1px) /
+    var(--fluid-screen-range));
+    --tk-text-xs-min: .75rem;
+    --tk-text-xs-max: .875rem;
+    --tk-text-xs: clamp(var(--tk-text-xs-min),
+    calc(var(--tk-text-xs-min) +
+      (var(--tk-text-xs-max) - var(--tk-text-xs-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-xs-max));
+    --tk-text-sm-min: .875rem;
+    --tk-text-sm-max: 1rem;
+    --tk-text-sm: clamp(var(--tk-text-sm-min),
+    calc(var(--tk-text-sm-min) +
+      (var(--tk-text-sm-max) - var(--tk-text-sm-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-sm-max));
+    --tk-text-md-min: 1rem;
+    --tk-text-md-max: 1.125rem;
+    --tk-text-md: clamp(var(--tk-text-md-min),
+    calc(var(--tk-text-md-min) +
+      (var(--tk-text-md-max) - var(--tk-text-md-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-md-max));
+    --tk-text-lg-min: 1.125rem;
+    --tk-text-lg-max: 1.25rem;
+    --tk-text-lg: clamp(var(--tk-text-lg-min),
+    calc(var(--tk-text-lg-min) +
+      (var(--tk-text-lg-max) - var(--tk-text-lg-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-lg-max));
+    --tk-text-xl-min: 1.25rem;
+    --tk-text-xl-max: 1.5rem;
+    --tk-text-xl: clamp(var(--tk-text-xl-min),
+    calc(var(--tk-text-xl-min) +
+      (var(--tk-text-xl-max) - var(--tk-text-xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-xl-max));
+    --tk-text-2xl-min: 1.5rem;
+    --tk-text-2xl-max: 2rem;
+    --tk-text-2xl: clamp(var(--tk-text-2xl-min),
+    calc(var(--tk-text-2xl-min) +
+      (var(--tk-text-2xl-max) - var(--tk-text-2xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-2xl-max));
+    --tk-text-3xl-min: 1.875rem;
+    --tk-text-3xl-max: 2.5rem;
+    --tk-text-3xl: clamp(var(--tk-text-3xl-min),
+    calc(var(--tk-text-3xl-min) +
+      (var(--tk-text-3xl-max) - var(--tk-text-3xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-3xl-max));
+    --tk-text-4xl-min: 2.25rem;
+    --tk-text-4xl-max: 3rem;
+    --tk-text-4xl: clamp(var(--tk-text-4xl-min),
+    calc(var(--tk-text-4xl-min) +
+      (var(--tk-text-4xl-max) - var(--tk-text-4xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-4xl-max));
+    --tk-text-5xl-min: 3rem;
+    --tk-text-5xl-max: 4rem;
+    --tk-text-5xl: clamp(var(--tk-text-5xl-min),
+    calc(var(--tk-text-5xl-min) +
+      (var(--tk-text-5xl-max) - var(--tk-text-5xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-5xl-max));
+    --tk-text-6xl-min: 3.75rem;
+    --tk-text-6xl-max: 5rem;
+    --tk-text-6xl: clamp(var(--tk-text-6xl-min),
+    calc(var(--tk-text-6xl-min) +
+      (var(--tk-text-6xl-max) - var(--tk-text-6xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-6xl-max));
+    --tk-text-7xl-min: 4.5rem;
+    --tk-text-7xl-max: 6rem;
+    --tk-text-7xl: clamp(var(--tk-text-7xl-min),
+    calc(var(--tk-text-7xl-min) +
+      (var(--tk-text-7xl-max) - var(--tk-text-7xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-7xl-max));
+    --tk-text-8xl-min: 6rem;
+    --tk-text-8xl-max: 8rem;
+    --tk-text-8xl: clamp(var(--tk-text-8xl-min),
+    calc(var(--tk-text-8xl-min) +
+      (var(--tk-text-8xl-max) - var(--tk-text-8xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-8xl-max));
+    --tk-text-9xl-min: 8rem;
+    --tk-text-9xl-max: 10rem;
+    --tk-text-9xl: clamp(var(--tk-text-9xl-min),
+    calc(var(--tk-text-9xl-min) +
+      (var(--tk-text-9xl-max) - var(--tk-text-9xl-min)) *
+      var(--fluid-rem-factor)),
+    var(--tk-text-9xl-max));
     --tk-font-weight-100: 100;
     --tk-font-weight-200: 200;
     --tk-font-weight-300: 300;
@@ -662,7 +759,7 @@
     --tk-font-variant-caps-unicase: unicase;
     --tk-font-variant-caps-titling-caps: titling-caps;
     --tk-line-height-xs: .55;
-    --tk-line-height-sm: 1;
+    --tk-line-height-sm: 1.1;
     --tk-line-height-md: 1.25;
     --tk-line-height-lg: 1.5;
     --tk-line-height-xl: 1.625;
@@ -777,27 +874,6 @@
     --tk-text-wrap-balance: balance;
     --tk-text-wrap-pretty: pretty;
     --tk-text-wrap-stable: stable;
-    --tk-bg-none: none;
-    --tk-bg-repeat: repeat;
-    --tk-bg-no-repeat: no-repeat;
-    --tk-bg-repeat-x: repeat-x;
-    --tk-bg-repeat-y: repeat-y;
-    --tk-bg-fixed: fixed;
-    --tk-bg-local: local;
-    --tk-bg-scroll: scroll;
-    --tk-bg-clip-border: border-box;
-    --tk-bg-clip-padding: padding-box;
-    --tk-bg-clip-content: content-box;
-    --tk-bg-position-center: center;
-    --tk-bg-position-top: top;
-    --tk-bg-position-bottom: bottom;
-    --tk-bg-position-left: left;
-    --tk-bg-position-right: right;
-    --tk-bg-size-cover: cover;
-    --tk-bg-size-contain: contain;
-    --tk-bg-origin-border: border-box;
-    --tk-bg-origin-padding: padding-box;
-    --tk-bg-origin-content: content-box;
     --tk-duration-xs: .1s;
     --tk-duration-sm: .35s;
     --tk-duration-md: .8s;
@@ -866,33 +942,173 @@
     --tk-transition-transform: transform .4s var(--tk-ease);
     --tk-transition-box-shadow: box-shadow .4s var(--tk-ease);
     color-scheme: light dark;
-    --tk-bg-5x: light-dark(var(--tk-color-theme-5xlight), var(--tk-color-theme-5xdark));
-    --tk-bg-4x: light-dark(var(--tk-color-theme-4xlight), var(--tk-color-theme-4xdark));
-    --tk-bg-3x: light-dark(var(--tk-color-theme-3xlight), var(--tk-color-theme-3xdark));
-    --tk-bg-2x: light-dark(var(--tk-color-theme-2xlight), var(--tk-color-theme-2xdark));
-    --tk-bg-1x: light-dark(var(--tk-color-theme-1xlight), var(--tk-color-theme-1xdark));
+    --tk-fg-theme-5x: light-dark(var(--tk-color-theme-5xdark), var(--tk-color-theme-5xlight));
+    --tk-fg-theme-4x: light-dark(var(--tk-color-theme-4xdark), var(--tk-color-theme-4xlight));
+    --tk-fg-theme-3x: light-dark(var(--tk-color-theme-3xdark), var(--tk-color-theme-3xlight));
+    --tk-fg-theme-2x: light-dark(var(--tk-color-theme-2xdark), var(--tk-color-theme-2xlight));
+    --tk-fg-theme-1x: light-dark(var(--tk-color-theme-1xdark), var(--tk-color-theme-1xlight));
+    --tk-fg-success: light-dark(var(--tk-color-success-2xdark), var(--tk-color-success-2xlight));
+    --tk-fg-info: light-dark(var(--tk-color-info-2xdark), var(--tk-color-info-2xlight));
+    --tk-fg-warning: light-dark(var(--tk-color-warning-2xdark), var(--tk-color-warning-2xlight));
+    --tk-fg-error: light-dark(var(--tk-color-error-2xdark), var(--tk-color-error-2xlight));
+    --tk-fg-success-1x: light-dark(var(--tk-color-success-1xdark), var(--tk-color-success-1xlight));
+    --tk-fg-success-2x: light-dark(var(--tk-color-success-2xdark), var(--tk-color-success-2xlight));
+    --tk-fg-success-3x: light-dark(var(--tk-color-success-3xdark), var(--tk-color-success-3xlight));
+    --tk-fg-success-4x: light-dark(var(--tk-color-success-4xdark), var(--tk-color-success-4xlight));
+    --tk-fg-success-5x: light-dark(var(--tk-color-success-5xdark), var(--tk-color-success-5xlight));
+    --tk-fg-info-1x: light-dark(var(--tk-color-info-1xdark), var(--tk-color-info-1xlight));
+    --tk-fg-info-2x: light-dark(var(--tk-color-info-2xdark), var(--tk-color-info-2xlight));
+    --tk-fg-info-3x: light-dark(var(--tk-color-info-3xdark), var(--tk-color-info-3xlight));
+    --tk-fg-info-4x: light-dark(var(--tk-color-info-4xdark), var(--tk-color-info-4xlight));
+    --tk-fg-info-5x: light-dark(var(--tk-color-info-5xdark), var(--tk-color-info-5xlight));
+    --tk-fg-warning-1x: light-dark(var(--tk-color-warning-1xdark), var(--tk-color-warning-1xlight));
+    --tk-fg-warning-2x: light-dark(var(--tk-color-warning-2xdark), var(--tk-color-warning-2xlight));
+    --tk-fg-warning-3x: light-dark(var(--tk-color-warning-3xdark), var(--tk-color-warning-3xlight));
+    --tk-fg-warning-4x: light-dark(var(--tk-color-warning-4xdark), var(--tk-color-warning-4xlight));
+    --tk-fg-warning-5x: light-dark(var(--tk-color-warning-5xdark), var(--tk-color-warning-5xlight));
+    --tk-fg-error-1x: light-dark(var(--tk-color-error-1xdark), var(--tk-color-error-1xlight));
+    --tk-fg-error-2x: light-dark(var(--tk-color-error-2xdark), var(--tk-color-error-2xlight));
+    --tk-fg-error-3x: light-dark(var(--tk-color-error-3xdark), var(--tk-color-error-3xlight));
+    --tk-fg-error-4x: light-dark(var(--tk-color-error-4xdark), var(--tk-color-error-4xlight));
+    --tk-fg-error-5x: light-dark(var(--tk-color-error-5xdark), var(--tk-color-error-5xlight));
+    --tk-bg-theme-5x: light-dark(var(--tk-color-theme-5xlight), var(--tk-color-theme-5xdark));
+    --tk-bg-theme-4x: light-dark(var(--tk-color-theme-4xlight), var(--tk-color-theme-4xdark));
+    --tk-bg-theme-3x: light-dark(var(--tk-color-theme-3xlight), var(--tk-color-theme-3xdark));
+    --tk-bg-theme-2x: light-dark(var(--tk-color-theme-2xlight), var(--tk-color-theme-2xdark));
+    --tk-bg-theme-1x: light-dark(var(--tk-color-theme-1xlight), var(--tk-color-theme-1xdark));
     --tk-bg-success: light-dark(var(--tk-color-success-4xlight), var(--tk-color-success-4xdark));
     --tk-bg-warning: light-dark(var(--tk-color-warning-4xlight), var(--tk-color-warning-4xdark));
     --tk-bg-error: light-dark(var(--tk-color-error-4xlight), var(--tk-color-error-4xdark));
     --tk-bg-info: light-dark(var(--tk-color-info-4xlight), var(--tk-color-info-4xdark));
-    --tk-fg-5x: light-dark(var(--tk-color-theme-5xdark), var(--tk-color-theme-5xlight));
-    --tk-fg-4x: light-dark(var(--tk-color-theme-4xdark), var(--tk-color-theme-4xlight));
-    --tk-fg-3x: light-dark(var(--tk-color-theme-3xdark), var(--tk-color-theme-3xlight));
-    --tk-fg-2x: light-dark(var(--tk-color-theme-2xdark), var(--tk-color-theme-2xlight));
-    --tk-fg-1x: light-dark(var(--tk-color-theme-1xdark), var(--tk-color-theme-1xlight));
-    --tk-fg-success: light-dark(var(--tk-color-success-2xdark), var(--tk-color-success-2xlight));
-    --tk-fg-info: light-dark(var(--tk-color-info-2xdark), var(--tk-color-info-2xlight));
-    --tk-fg-warning: light-dark(var(--tk-color-warning-3xdark), var(--tk-color-warning-2xlight));
-    --tk-fg-error: light-dark(var(--tk-color-error-2xdark), var(--tk-color-error-2xlight));
+    --tk-bg-success-1x: light-dark(var(--tk-color-success-1xdark), var(--tk-color-success-1xlight));
+    --tk-bg-success-2x: light-dark(var(--tk-color-success-2xdark), var(--tk-color-success-2xlight));
+    --tk-bg-success-3x: light-dark(var(--tk-color-success-3xdark), var(--tk-color-success-3xlight));
+    --tk-bg-success-4x: light-dark(var(--tk-color-success-4xdark), var(--tk-color-success-4xlight));
+    --tk-bg-success-5x: light-dark(var(--tk-color-success-5xdark), var(--tk-color-success-5xlight));
+    --tk-bg-info-1x: light-dark(var(--tk-color-info-1xdark), var(--tk-color-info-1xlight));
+    --tk-bg-info-2x: light-dark(var(--tk-color-info-2xdark), var(--tk-color-info-2xlight));
+    --tk-bg-info-3x: light-dark(var(--tk-color-info-3xdark), var(--tk-color-info-3xlight));
+    --tk-bg-info-4x: light-dark(var(--tk-color-info-4xdark), var(--tk-color-info-4xlight));
+    --tk-bg-info-5x: light-dark(var(--tk-color-info-5xdark), var(--tk-color-info-5xlight));
+    --tk-bg-warning-1x: light-dark(var(--tk-color-warning-1xdark), var(--tk-color-warning-1xlight));
+    --tk-bg-warning-2x: light-dark(var(--tk-color-warning-2xdark), var(--tk-color-warning-2xlight));
+    --tk-bg-warning-3x: light-dark(var(--tk-color-warning-3xdark), var(--tk-color-warning-3xlight));
+    --tk-bg-warning-4x: light-dark(var(--tk-color-warning-4xdark), var(--tk-color-warning-4xlight));
+    --tk-bg-warning-5x: light-dark(var(--tk-color-warning-5xdark), var(--tk-color-warning-5xlight));
+    --tk-bg-error-1x: light-dark(var(--tk-color-error-1xdark), var(--tk-color-error-1xlight));
+    --tk-bg-error-2x: light-dark(var(--tk-color-error-2xdark), var(--tk-color-error-2xlight));
+    --tk-bg-error-3x: light-dark(var(--tk-color-error-3xdark), var(--tk-color-error-3xlight));
+    --tk-bg-error-4x: light-dark(var(--tk-color-error-4xdark), var(--tk-color-error-4xlight));
+    --tk-bg-error-5x: light-dark(var(--tk-color-error-5xdark), var(--tk-color-error-5xlight));
     --tk-focus-ring: var(--tk-color-primary);
   }
 
   [data-theme="light"] {
     color-scheme: light;
+    --tk-fg-theme-5x: var(--tk-color-theme-5xdark);
+    --tk-fg-theme-4x: var(--tk-color-theme-4xdark);
+    --tk-fg-theme-3x: var(--tk-color-theme-3xdark);
+    --tk-fg-theme-2x: var(--tk-color-theme-2xdark);
+    --tk-fg-theme-1x: var(--tk-color-theme-1xdark);
+    --tk-fg-success-1x: var(--tk-color-success-1xdark);
+    --tk-fg-success-2x: var(--tk-color-success-2xdark);
+    --tk-fg-success-3x: var(--tk-color-success-3xdark);
+    --tk-fg-success-4x: var(--tk-color-success-4xdark);
+    --tk-fg-success-5x: var(--tk-color-success-5xdark);
+    --tk-fg-info-1x: var(--tk-color-info-1xdark);
+    --tk-fg-info-2x: var(--tk-color-info-2xdark);
+    --tk-fg-info-3x: var(--tk-color-info-3xdark);
+    --tk-fg-info-4x: var(--tk-color-info-4xdark);
+    --tk-fg-info-5x: var(--tk-color-info-5xdark);
+    --tk-fg-warning-1x: var(--tk-color-warning-1xdark);
+    --tk-fg-warning-2x: var(--tk-color-warning-2xdark);
+    --tk-fg-warning-3x: var(--tk-color-warning-3xdark);
+    --tk-fg-warning-4x: var(--tk-color-warning-4xdark);
+    --tk-fg-warning-5x: var(--tk-color-warning-5xdark);
+    --tk-fg-error-1x: var(--tk-color-error-1xdark);
+    --tk-fg-error-2x: var(--tk-color-error-2xdark);
+    --tk-fg-error-3x: var(--tk-color-error-3xdark);
+    --tk-fg-error-4x: var(--tk-color-error-4xdark);
+    --tk-fg-error-5x: var(--tk-color-error-5xdark);
+    --tk-bg-theme-5x: var(--tk-color-theme-5xlight);
+    --tk-bg-theme-4x: var(--tk-color-theme-4xlight);
+    --tk-bg-theme-3x: var(--tk-color-theme-3xlight);
+    --tk-bg-theme-2x: var(--tk-color-theme-2xlight);
+    --tk-bg-theme-1x: var(--tk-color-theme-1xlight);
+    --tk-bg-success-1x: var(--tk-color-success-1xlight);
+    --tk-bg-success-2x: var(--tk-color-success-2xlight);
+    --tk-bg-success-3x: var(--tk-color-success-3xlight);
+    --tk-bg-success-4x: var(--tk-color-success-4xlight);
+    --tk-bg-success-5x: var(--tk-color-success-5xlight);
+    --tk-bg-info-1x: var(--tk-color-info-1xlight);
+    --tk-bg-info-2x: var(--tk-color-info-2xlight);
+    --tk-bg-info-3x: var(--tk-color-info-3xlight);
+    --tk-bg-info-4x: var(--tk-color-info-4xlight);
+    --tk-bg-info-5x: var(--tk-color-info-5xlight);
+    --tk-bg-warning-1x: var(--tk-color-warning-1xlight);
+    --tk-bg-warning-2x: var(--tk-color-warning-2xlight);
+    --tk-bg-warning-3x: var(--tk-color-warning-3xlight);
+    --tk-bg-warning-4x: var(--tk-color-warning-4xlight);
+    --tk-bg-warning-5x: var(--tk-color-warning-5xlight);
+    --tk-bg-error-1x: var(--tk-color-error-1xlight);
+    --tk-bg-error-2x: var(--tk-color-error-2xlight);
+    --tk-bg-error-3x: var(--tk-color-error-3xlight);
+    --tk-bg-error-4x: var(--tk-color-error-4xlight);
+    --tk-bg-error-5x: var(--tk-color-error-5xlight);
   }
 
   [data-theme="dark"] {
     color-scheme: dark;
+    --tk-fg-theme-5x: var(--tk-color-theme-5xlight);
+    --tk-fg-theme-4x: var(--tk-color-theme-4xlight);
+    --tk-fg-theme-3x: var(--tk-color-theme-3xlight);
+    --tk-fg-theme-2x: var(--tk-color-theme-2xlight);
+    --tk-fg-theme-1x: var(--tk-color-theme-1xlight);
+    --tk-fg-success-1x: var(--tk-color-success-1xlight);
+    --tk-fg-success-2x: var(--tk-color-success-2xlight);
+    --tk-fg-success-3x: var(--tk-color-success-3xlight);
+    --tk-fg-success-4x: var(--tk-color-success-4xlight);
+    --tk-fg-success-5x: var(--tk-color-success-5xlight);
+    --tk-fg-info-1x: var(--tk-color-info-1xlight);
+    --tk-fg-info-2x: var(--tk-color-info-2xlight);
+    --tk-fg-info-3x: var(--tk-color-info-3xlight);
+    --tk-fg-info-4x: var(--tk-color-info-4xlight);
+    --tk-fg-info-5x: var(--tk-color-info-5xlight);
+    --tk-fg-warning-1x: var(--tk-color-warning-1xlight);
+    --tk-fg-warning-2x: var(--tk-color-warning-2xlight);
+    --tk-fg-warning-3x: var(--tk-color-warning-3xlight);
+    --tk-fg-warning-4x: var(--tk-color-warning-4xlight);
+    --tk-fg-warning-5x: var(--tk-color-warning-5xlight);
+    --tk-fg-error-1x: var(--tk-color-error-1xlight);
+    --tk-fg-error-2x: var(--tk-color-error-2xlight);
+    --tk-fg-error-3x: var(--tk-color-error-3xlight);
+    --tk-fg-error-4x: var(--tk-color-error-4xlight);
+    --tk-fg-error-5x: var(--tk-color-error-5xlight);
+    --tk-bg-theme-5x: var(--tk-color-theme-5xdark);
+    --tk-bg-theme-4x: var(--tk-color-theme-4xdark);
+    --tk-bg-theme-3x: var(--tk-color-theme-3xdark);
+    --tk-bg-theme-2x: var(--tk-color-theme-2xdark);
+    --tk-bg-theme-1x: var(--tk-color-theme-1xdark);
+    --tk-bg-success-1x: var(--tk-color-success-1xdark);
+    --tk-bg-success-2x: var(--tk-color-success-2xdark);
+    --tk-bg-success-3x: var(--tk-color-success-3xdark);
+    --tk-bg-success-4x: var(--tk-color-success-4xdark);
+    --tk-bg-success-5x: var(--tk-color-success-5xdark);
+    --tk-bg-info-1x: var(--tk-color-info-1xdark);
+    --tk-bg-info-2x: var(--tk-color-info-2xdark);
+    --tk-bg-info-3x: var(--tk-color-info-3xdark);
+    --tk-bg-info-4x: var(--tk-color-info-4xdark);
+    --tk-bg-info-5x: var(--tk-color-info-5xdark);
+    --tk-bg-warning-1x: var(--tk-color-warning-1xdark);
+    --tk-bg-warning-2x: var(--tk-color-warning-2xdark);
+    --tk-bg-warning-3x: var(--tk-color-warning-3xdark);
+    --tk-bg-warning-4x: var(--tk-color-warning-4xdark);
+    --tk-bg-warning-5x: var(--tk-color-warning-5xdark);
+    --tk-bg-error-1x: var(--tk-color-error-1xdark);
+    --tk-bg-error-2x: var(--tk-color-error-2xdark);
+    --tk-bg-error-3x: var(--tk-color-error-3xdark);
+    --tk-bg-error-4x: var(--tk-color-error-4xdark);
+    --tk-bg-error-5x: var(--tk-color-error-5xdark);
   }
 }
 
@@ -912,20 +1128,13 @@
     tab-size: 4;
   }
 
-  html {
-    scroll-behavior: smooth;
-    hanging-punctuation: first last;
-  }
-
   body {
-    background-color: var(--tk-bg-5x);
+    background-color: var(--tk-bg-theme-4x);
     max-width: var(--tk-screen-xl);
     margin-inline: var(--tk-value-auto);
-    min-height: 100dvh;
-    color: var(--tk-fg-4x);
+    color: var(--tk-fg-theme-4x);
     font-family: var(--tk-font-body);
     font-size: var(--tk-text-md);
-    line-height: var(--tk-line-height-lg);
   }
 
   body, main, section, article, aside, header, footer {
@@ -934,12 +1143,14 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--tk-font-heading);
-    letter-spacing: var(--tk-letter-spacing-lg);
+    line-height: var(--tk-line-height-sm);
+    letter-spacing: var(--tk-letter-spacing-md);
     overflow-wrap: break-word;
     text-wrap: var(--tk-text-wrap-balance);
   }
 
   p, span {
+    line-height: var(--tk-line-height-sm);
     overflow-wrap: break-word;
     text-wrap: var(--tk-text-wrap-pretty);
   }
@@ -981,18 +1192,13 @@
 
   a {
     color: inherit;
+    font-weight: var(--tk-font-weight-500);
     text-decoration: inherit;
     cursor: var(--tk-cursor-pointer);
   }
 
   ol, ul, menu {
-    gap: var(--tk-size-16);
     min-width: fit-content;
-    display: inline-flex;
-  }
-
-  ol li, ul li, menu li {
-    width: 100%;
   }
 
   table {
@@ -1015,7 +1221,7 @@
   }
 
   ::selection {
-    background-color: var(--tk-color-primary-5a);
+    background-color: var(--tk-color-primary);
     color: var(--tk-color-primary-5xlight);
   }
 
@@ -1084,50 +1290,47 @@
 @layer typography {
   h1 {
     font-size: var(--tk-text-5xl);
-    font-weight: var(--tk-font-weight-800);
-    line-height: var(--tk-line-height-md);
-    margin-block-end: var(--tk-size-24);
   }
 
   h2 {
     font-size: var(--tk-text-4xl);
-    font-weight: var(--tk-font-weight-700);
-    line-height: var(--tk-line-height-md);
+  }
+
+  :where(h1, h2):not(:last-child) {
     margin-block-end: var(--tk-size-16);
   }
 
   h3 {
     font-size: var(--tk-text-3xl);
-    font-weight: var(--tk-font-weight-700);
-    line-height: var(--tk-line-height-lg);
+  }
+
+  h3:not(:last-child) {
     margin-block-end: var(--tk-size-12);
   }
 
   h4 {
     font-size: var(--tk-text-2xl);
-    font-weight: var(--tk-font-weight-600);
-    line-height: var(--tk-line-height-md);
-    margin-block-end: var(--tk-size-8);
   }
 
   h5 {
     font-size: var(--tk-text-xl);
-    font-weight: var(--tk-font-weight-600);
-    line-height: var(--tk-line-height-md);
-    margin-block-end: var(--tk-size-8);
   }
 
   h6 {
     font-size: var(--tk-text-lg);
-    font-weight: var(--tk-font-weight-600);
-    line-height: var(--tk-line-height-md);
+  }
+
+  :where(h4, h5, h6):not(:last-child) {
     margin-block-end: var(--tk-size-8);
   }
 
   p {
     font-size: var(--tk-text-md);
-    color: var(--tk-fg-4x);
-    margin-block-end: var(--tk-size-16);
+    color: var(--tk-fg-theme-4x);
+  }
+
+  p:not(:last-child) {
+    margin-block-end: var(--tk-size-20);
   }
 
   h1 ~ p, h2 ~ p {
@@ -1136,7 +1339,7 @@
 
   strong, b {
     font-weight: var(--tk-font-weight-700);
-    color: var(--tk-fg-5x);
+    color: var(--tk-fg-theme-5x);
   }
 
   em, i {
@@ -1145,13 +1348,13 @@
 
   small {
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-2x);
+    color: var(--tk-fg-theme-2x);
   }
 
   :where(article, section, main) a:not([role="button"]) {
     color: var(--tk-color-primary);
     text-decoration: underline;
-    text-decoration-color: var(--tk-color-primary-2a);
+    text-decoration-color: var(--tk-color-primary-8a);
     text-underline-offset: .15em;
     transition: color var(--tk-duration-sm) var(--tk-ease), text-decoration-color var(--tk-duration-sm) var(--tk-ease);
     text-decoration-thickness: 1px;
@@ -1173,26 +1376,27 @@
   code, kbd, samp {
     font-family: var(--tk-font-mono);
     font-size: .875em;
+    line-height: var(--tk-line-height-md);
+    border: 1px solid var(--tk-theme-4a);
+    box-shadow: var(--tk-shadow-sm);
   }
 
   :not(pre) > code {
-    background-color: var(--tk-color-theme-2a);
-    color: var(--tk-color-primary-1xdark);
+    background-color: var(--tk-bg-theme-4x);
+    color: var(--tk-fg-theme-4x);
     border-radius: var(--tk-size-4);
     font-weight: var(--tk-font-weight-500);
     padding: .125rem .375rem;
   }
 
   kbd {
-    background-color: var(--tk-bg-4x);
-    border: 1px solid var(--tk-bg-5x);
+    background-color: var(--tk-bg-theme-4x);
+    border: 1px solid var(--tk-bg-theme-5x);
     border-radius: var(--tk-size-4);
     min-width: 1.5em;
     font-size: var(--tk-text-xs);
     font-weight: var(--tk-font-weight-600);
-    color: var(--tk-fg-3x);
-    box-shadow: var(--tk-shadow-sm);
-    border-bottom-width: 2px;
+    color: var(--tk-fg-theme-3x);
     justify-content: center;
     align-items: center;
     padding: .125rem .375rem;
@@ -1204,10 +1408,10 @@
     font-size: var(--tk-text-sm);
     line-height: var(--tk-line-height-lg);
     background-color: var(--tk-color-theme-4xlight);
-    color: var(--tk-fg-5x);
+    color: var(--tk-fg-theme-5x);
     padding: var(--tk-size-24);
     border-radius: var(--tk-size-12);
-    border: 1px solid var(--tk-bg-2x);
+    border: 1px solid var(--tk-bg-theme-2x);
     tab-size: 2;
     margin-block-end: var(--tk-size-32);
     overflow-x: auto;
@@ -1225,7 +1429,7 @@
     padding-inline-start: var(--tk-size-24);
     padding-block: var(--tk-size-4);
     font-style: var(--tk-font-style-italic);
-    color: var(--tk-fg-2x);
+    color: var(--tk-fg-theme-2x);
     font-size: var(--tk-text-lg);
     margin-block-end: var(--tk-size-32);
   }
@@ -1238,7 +1442,7 @@
     font-size: var(--tk-text-sm);
     font-style: var(--tk-value-normal);
     font-weight: var(--tk-font-weight-500);
-    color: var(--tk-fg-4x);
+    color: var(--tk-fg-theme-4x);
     margin-block-start: var(--tk-size-2);
     display: block;
   }
@@ -1248,20 +1452,11 @@
   }
 
   :where(article, section, main) ul {
-    margin-block-end: var(--tk-size-12);
-    padding-inline-start: var(--tk-size-32);
     list-style: outside;
   }
 
   :where(article, section, main) ol {
-    margin-block-end: var(--tk-size-12);
-    padding-inline-start: var(--tk-size-32);
     list-style: decimal;
-  }
-
-  :where(article, section, main) li {
-    line-height: var(--tk-line-height-lg);
-    margin-block-end: var(--tk-size-4);
   }
 
   :where(article, section, main) li > ul, :where(article, section, main) li > ol {
@@ -1269,37 +1464,40 @@
     margin-block-end: var(--tk-size-4);
   }
 
-  hr {
-    border: var(--tk-border-none);
-    background: var(--tk-fg-4x);
-    height: 1px;
-    margin-block: var(--tk-size-48);
+  article p {
+    line-height: var(--tk-line-height-lg);
   }
 
-  details {
-    border: 1px solid var(--tk-fg-4x);
-    border-radius: var(--tk-radius-sm);
-    padding: var(--tk-size-12) var(--tk-size-24);
-    margin-block-end: var(--tk-size-12);
+  hr {
+    border: var(--tk-border-none);
+    background: var(--tk-theme-4a);
+    height: 1px;
+    margin-block: var(--tk-size-8);
   }
 
   summary {
-    font-weight: var(--tk-font-weight-600);
     cursor: var(--tk-cursor-pointer);
     user-select: var(--tk-user-select-none);
-    color: var(--tk-fg-4x);
     padding: var(--tk-size-4) 0;
     list-style: var(--tk-list-style-type-none);
     align-items: center;
-    gap: var(--tk-size-12);
     display: flex;
   }
 
-  summary:before {
-    content: "▸";
+  summary:has( > :nth-child(2)):not(:has( > :nth-child(3))) {
+    justify-content: space-between;
+  }
+
+  summary:after {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
     transition: transform var(--tk-duration-md) var(--tk-ease);
     font-size: .8em;
     display: inline-block;
+  }
+
+  summary:has( > :nth-child(2)):not(:has( > :nth-child(3))):before, summary:has( > :nth-child(2)):not(:has( > :nth-child(3))):after {
+    content: none;
+    position: absolute;
   }
 
   details[open] > summary:before {
@@ -1314,14 +1512,13 @@
     margin-block: var(--tk-size-12);
   }
 
-  figure {
+  figure:not(:last-child) {
     margin-block-end: var(--tk-size-32);
   }
 
   figcaption {
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-4x);
-    text-align: center;
+    color: var(--tk-fg-theme-4x);
     font-style: var(--tk-font-style-italic);
     margin-block-start: var(--tk-size-2);
   }
@@ -1332,7 +1529,7 @@
     display: var(--tk-display-block);
     font-size: var(--tk-text-sm);
     font-weight: var(--tk-font-weight-600);
-    color: var(--tk-fg-5x);
+    color: var(--tk-fg-theme-5x);
     margin-block-end: .375rem;
   }
 
@@ -1342,16 +1539,16 @@
     padding: .625rem var(--tk-size-12);
     font-size: var(--tk-text-md);
     line-height: var(--tk-line-height-md);
-    color: var(--tk-fg-5x);
-    background-color: var(--tk-bg-4x);
-    border: 1px solid var(--tk-bg-4x);
-    border-radius: var(--tk-size-8);
+    color: var(--tk-fg-theme-2x);
+    background-color: var(--tk-bg-theme-4x);
+    border: 1px solid var(--tk-fg-theme-2x);
+    border-radius: var(--tk-size-2);
     outline: var(--tk-outline-none);
     transition: border-color var(--tk-duration-sm) var(--tk-ease), box-shadow var(--tk-duration-sm) var(--tk-ease);
   }
 
   input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):hover, textarea:hover, select:hover {
-    border-color: var(--tk-fg-4x);
+    border-color: var(--tk-fg-theme-4x);
   }
 
   input:where([type="text"], [type="email"], [type="password"], [type="url"], [type="tel"], [type="number"], [type="search"], [type="date"], [type="datetime-local"], [type="month"], [type="week"], [type="time"]):focus, textarea:focus, select:focus {
@@ -1360,7 +1557,7 @@
   }
 
   ::placeholder {
-    color: var(--tk-fg-3x);
+    color: var(--tk-fg-theme-3x);
     opacity: var(--tk-opacity-full);
   }
 
@@ -1386,8 +1583,8 @@
 
   input[type="checkbox"], input[type="radio"] {
     appearance: var(--tk-appearance-none);
-    border: 2px solid var(--tk-bg-2x);
-    background-color: var(--tk-bg-4x);
+    border: 2px solid var(--tk-bg-theme-2x);
+    background-color: var(--tk-bg-theme-4x);
     vertical-align: middle;
     width: 1.125rem;
     height: 1.125rem;
@@ -1454,7 +1651,7 @@
     appearance: var(--tk-appearance-none);
     background: var(--tk-color-primary);
     border-radius: var(--tk-radius-full);
-    border: 3px solid var(--tk-bg-4x);
+    border: 3px solid var(--tk-bg-theme-4x);
     width: 1.25rem;
     height: 1.25rem;
     box-shadow: var(--tk-shadow-sm);
@@ -1468,13 +1665,13 @@
 
   input[type="color"] {
     appearance: var(--tk-appearance-none);
-    border: 2px solid var(--tk-fg-4x);
+    border: 2px solid var(--tk-fg-theme-4x);
     border-radius: var(--tk-size-8);
     width: 3rem;
     height: 2.5rem;
     padding: var(--tk-size-4);
     cursor: var(--tk-cursor-pointer);
-    background: var(--tk-bg-4x);
+    background: var(--tk-bg-theme-4x);
   }
 
   input[type="color"]::-webkit-color-swatch-wrapper {
@@ -1488,7 +1685,7 @@
 
   input[type="file"] {
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-2x);
+    color: var(--tk-fg-theme-2x);
   }
 
   input[type="file"]::file-selector-button {
@@ -1534,7 +1731,7 @@
   }
 
   fieldset {
-    border: 1px solid var(--tk-bg-4x);
+    border: 1px solid var(--tk-bg-theme-4x);
     border-radius: var(--tk-size-12);
     padding: var(--tk-size-24);
     margin-block-end: var(--tk-size-24);
@@ -1543,7 +1740,7 @@
   legend {
     font-weight: var(--tk-font-weight-700);
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-5x);
+    color: var(--tk-fg-theme-5x);
     padding-inline: var(--tk-size-2);
     text-transform: var(--tk-text-transform-uppercase);
     letter-spacing: .05em;
@@ -1551,20 +1748,18 @@
 
   label:has( + input:required):after, label:has( + textarea:required):after, label:has( + select:required):after {
     content: " *";
-    color: var(--tk-fg-4x);
+    color: var(--tk-fg-theme-4x);
   }
 }
 
 @layer components {
   button, input[type="submit"], input[type="button"], input[type="reset"], [role="button"] {
+    vertical-align: middle;
     justify-content: center;
     align-items: center;
-    gap: var(--tk-size-2);
-    padding: .625rem var(--tk-size-24);
-    font-size: var(--tk-text-sm);
-    font-weight: var(--tk-font-weight-600);
+    gap: var(--tk-size-8);
     white-space: var(--tk-whitespace-nowrap);
-    border-radius: var(--tk-size-8);
+    border-radius: var(--tk-size-4);
     cursor: var(--tk-cursor-pointer);
     user-select: var(--tk-user-select-none);
     -webkit-tap-highlight-color: transparent;
@@ -1574,8 +1769,7 @@
     border-color var(--tk-duration-md) var(--tk-ease),
     box-shadow var(--tk-duration-md) var(--tk-ease),
     transform var(--tk-duration-md) var(--tk-ease);
-    border: 1px solid #0000;
-    line-height: 1.4;
+    line-height: 1;
     display: inline-flex;
   }
 
@@ -1597,23 +1791,23 @@
   }
 
   thead {
-    background-color: var(--tk-color-theme-4xlight);
-    border-bottom: 2px solid var(--tk-fg-4x);
+    background-color: var(--tk-bg-theme-4x);
+    border-bottom: 2px solid var(--tk-fg-theme-4x);
   }
 
   th {
-    padding: var(--tk-size-4) var(--tk-size-12);
+    padding: var(--tk-size-16);
     font-weight: var(--tk-font-weight-700);
     font-size: var(--tk-text-xs);
     text-transform: var(--tk-text-transform-uppercase);
     letter-spacing: .06em;
-    color: var(--tk-fg-2x);
+    color: var(--tk-fg-theme-2x);
   }
 
   td {
     padding: var(--tk-size-4) var(--tk-size-12);
-    color: var(--tk-fg-5x);
-    border-bottom: 1px solid var(--tk-bg-2x);
+    color: var(--tk-fg-theme-5x);
+    border-bottom: 1px solid var(--tk-bg-theme-2x);
   }
 
   tbody tr {
@@ -1631,7 +1825,7 @@
   caption {
     padding: var(--tk-size-4) var(--tk-size-12);
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-4x);
+    color: var(--tk-fg-theme-4x);
     text-align: var(--tk-text-left);
     caption-side: bottom;
   }
@@ -1640,8 +1834,8 @@
     border: var(--tk-border-none);
     border-radius: var(--tk-radius-sm);
     padding: var(--tk-size-48);
-    background-color: var(--tk-bg-4x);
-    color: var(--tk-fg-4x);
+    background-color: var(--tk-bg-theme-4x);
+    color: var(--tk-fg-theme-4x);
     box-shadow: var(--tk-shadow-lg);
     width: 100%;
     max-width: min(90vw, 32rem);
@@ -1671,44 +1865,32 @@
     }
   }
 
-  nav ul {
-    align-items: center;
-    gap: var(--tk-size-4);
-    display: flex;
-  }
-
   nav a {
     align-items: center;
-    gap: var(--tk-size-4);
-    padding: var(--tk-size-2) var(--tk-size-4);
+    gap: var(--tk-size-8);
+    padding: var(--tk-size-4);
     font-size: var(--tk-text-sm);
-    font-weight: var(--tk-font-weight-500);
-    color: var(--tk-fg-2x);
-    border-radius: var(--tk-size-8);
+    border-radius: var(--tk-size-4);
     text-decoration: var(--tk-value-none);
     transition: color var(--tk-duration-xs) var(--tk-ease),
     background-color var(--tk-duration-xs) var(--tk-ease);
-    display: flex;
+    display: inline-flex;
   }
 
   nav a:hover {
-    color: var(--tk-fg-5x);
-    background-color: var(--tk-color-theme-3a);
+    background-color: var(--tk-theme-3a);
   }
 
   nav a[aria-current="page"], nav a[aria-current="true"] {
     color: var(--tk-color-primary-1xdark);
-    background-color: var(--tk-color-primary-2a);
+    background-color: var(--tk-bg-primary-2a);
     font-weight: var(--tk-font-weight-600);
   }
 }
 
 @layer layout {
-  header {
-    padding: var(--tk-size-20) var(--tk-size-20);
-    border-bottom: 1px solid var(--tk-border-sm);
-    background-color: var(--tk-bg-4x);
-    justify-content: space-between;
+  body > header {
+    padding-block: var(--tk-size-12);
     align-items: center;
     display: flex;
   }
@@ -1720,10 +1902,8 @@
     display: flex;
   }
 
-  header > * nav ul {
-    flex-direction: row;
-    gap: 1rem;
-    display: flex;
+  header > nav ul, header > nav ul li {
+    list-style: none;
   }
 
   header > * nav ul li a {
@@ -1731,35 +1911,14 @@
     text-decoration: var(--tk-value-none);
   }
 
-  main {
-    padding: var(--tk-size-48) var(--tk-size-20);
-    margin-inline: auto;
-  }
-
-  header + main > section:first-child {
-    padding-block-start: var(--tk-size-80);
-  }
-
-  section {
-    padding-block: var(--tk-size-64);
-  }
-
   body > footer {
-    padding: var(--tk-size-48) var(--tk-size-20);
-    border-top: 1px solid var(--tk-bg-2x);
-    color: var(--tk-fg-4x);
+    padding-block: var(--tk-size-48);
+    color: var(--tk-fg-theme-4x);
     font-size: var(--tk-text-sm);
-    text-align: center;
   }
 
   aside {
-    padding: var(--tk-size-24);
-    background-color: var(--tk-bg-3x);
-    border-radius: var(--tk-size-4);
-    border: 1px solid var(--tk-bg-2x);
     font-size: var(--tk-text-sm);
-    color: var(--tk-fg-2x);
-    margin-block-end: var(--tk-size-32);
   }
 
   .layout--grid {
@@ -1788,6 +1947,14 @@
     grid-column: main-start / full-end;
   }
 
+  .layout--main-end-fill-end {
+    grid-column: main-end / fill-end;
+  }
+
+  .layout--main-end-full-end {
+    grid-column: main-end / full-end;
+  }
+
   .layout--fill-start-main-end {
     grid-column: fill-start / main-end;
   }
@@ -1806,19 +1973,95 @@
 }
 
 @layer utilities {
-  .btn--sm {
+  .btn--xs {
+    min-height: 1.75rem;
     font-size: var(--tk-text-xs);
-    padding: .375rem .75rem;
+    letter-spacing: .01em;
+    padding: .25rem .625rem;
+  }
+
+  .btn--sm {
+    min-height: 2rem;
+    font-size: var(--tk-text-sm);
+    padding: .375rem .875rem;
   }
 
   .btn--md {
+    min-height: 2.5rem;
     font-size: var(--tk-text-md);
-    padding: .75rem 1.5rem;
+    padding: .5rem 1.125rem;
   }
 
   .btn--lg {
+    min-height: 2.75rem;
     font-size: var(--tk-text-lg);
-    padding: 1rem 2rem;
+    padding: .625rem 1.375rem;
+  }
+
+  .btn--xl {
+    min-height: 3rem;
+    font-size: var(--tk-text-xl);
+    letter-spacing: -.01em;
+    padding: .75rem 1.625rem;
+  }
+
+  .btn--primary {
+    --tk-btn-bg: var(--tk-color-primary);
+    --tk-btn-threshold: .65;
+  }
+
+  .btn--secondary {
+    --tk-btn-bg: var(--tk-color-secondary);
+    --tk-btn-threshold: .65;
+  }
+
+  .btn--accent {
+    --tk-btn-bg: var(--tk-color-accent);
+    --tk-btn-threshold: .65;
+  }
+
+  .btn--primary, .btn--secondary, .btn--accent {
+    background: var(--tk-btn-bg);
+    --_is-dark: clamp(0, (l - var(--tk-btn-threshold)) * -1000, 1);
+    color: oklch(from var(--tk-btn-bg)
+    calc((1 - var(--_is-dark)) * .18 + var(--_is-dark) * .97)
+    calc(c * .22)
+    h);
+  }
+
+  .btn--theme {
+    background: var(--tk-bg-theme-5x);
+    color: var(--tk-fg-theme-5x);
+  }
+
+  .btn--dark {
+    background: var(--tk-color-theme-5xdark);
+    color: var(--tk-color-theme-5xlight);
+  }
+
+  .btn--light {
+    background: var(--tk-color-theme-5xlight);
+    color: var(--tk-color-theme-5xdark);
+  }
+
+  .btn--success {
+    background: var(--tk-bg-success-3x);
+    color: var(--tk-color-theme-5xlight);
+  }
+
+  .btn--info {
+    background: var(--tk-bg-info-3x);
+    color: var(--tk-color-theme-5xlight);
+  }
+
+  .btn--warning {
+    background: var(--tk-bg-warning-3x);
+    color: var(--tk-color-theme-5xdark);
+  }
+
+  .btn--error {
+    background: var(--tk-bg-error-3x);
+    color: var(--tk-color-theme-5xlight);
   }
 
   [aria-busy="true"] {

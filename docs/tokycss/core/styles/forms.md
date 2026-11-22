@@ -8,7 +8,7 @@ Labels are block-level, semi-bold, and small. They sit above their associated in
 label {
   font-size: var(--tk-text-sm);
   font-weight: 600;
-  color: var(--tk-fg-5x);
+  color: var(--tk-fg-theme-5x);
 }
 ```
 

@@ -13,21 +13,13 @@
     tab-size: 4;
   }
 
-  html {
-    scroll-behavior: smooth;
-    hanging-punctuation: first last;
-  }
-
   body {
-    background-color: var(--tk-bg-5x);
+    background-color: var(--tk-bg-theme-4x);
     max-width: var(--tk-screen-xl);
     margin-inline: var(--tk-value-auto);
-    min-height: 100vh;
-    min-height: 100dvh;
-    color: var(--tk-fg-4x);
+    color: var(--tk-fg-theme-4x);
     font-family: var(--tk-font-body);
     font-size: var(--tk-text-md);
-    line-height: var(--tk-line-height-lg);
   }
 
   body, main, section, article, aside, header, footer {
@@ -36,12 +28,14 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--tk-font-heading);
-    letter-spacing: var(--tk-letter-spacing-lg);
+    line-height: var(--tk-line-height-sm);
+    letter-spacing: var(--tk-letter-spacing-md);
     overflow-wrap: break-word;
     text-wrap: var(--tk-text-wrap-balance);
   }
 
   p, span {
+    line-height: var(--tk-line-height-sm);
     overflow-wrap: break-word;
     text-wrap: var(--tk-text-wrap-pretty);
   }
@@ -83,18 +77,13 @@
 
   a {
     color: inherit;
+    font-weight: var(--tk-font-weight-500);
     text-decoration: inherit;
     cursor: var(--tk-cursor-pointer);
   }
 
   ol, ul, menu {
-    gap: var(--tk-size-16);
     min-width: fit-content;
-    display: inline-flex;
-  }
-
-  ol li, ul li, menu li {
-    width: 100%;
   }
 
   table {
@@ -117,7 +106,7 @@
   }
 
   ::selection {
-    background-color: var(--tk-color-primary-5a);
+    background-color: var(--tk-color-primary);
     color: var(--tk-color-primary-5xlight);
   }
 

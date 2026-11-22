@@ -9,104 +9,228 @@
  * for creating all fluid values (typography, spacing, etc.).
   /* --- Global Configuration --- */
   /* Set the viewport widths where fluid scaling should start and stop. */
-  --fluid-min-vw: var(--tk-fluid-scale-start, 480);
-  /* in pixels */
+  /* Fluid viewport range */
+  --fluid-min-vw: var(--tk-fluid-scale-start, 320);
   --fluid-max-vw: var(--tk-fluid-scale-end, 1440);
-  /* in pixels */
+  --fluid-screen-range: calc(var(--fluid-max-vw) * 1px - var(--fluid-min-vw) * 1px);
 
-  /* --- Engine Internals (Do Not Modify) --- */
-  /* These variables are used by the master formula. */
-  --fluid-screen-range: calc(var(--fluid-max-vw) - var(--fluid-min-vw));
-  --fluid-rem-factor: calc((100vw - var(--fluid-min-vw) * 1px) / var(--fluid-screen-range));
 
   /*
-     * FLUID TYPOGRAPHY SYSTEM
-     * This system uses an expanding modular scale for perfect visual hierarchy.
-     * The clamp formula uses: clamp(minRem, calc(minRem + (maxPx - minPx) * factor), maxRem)
-     */
-  
-    /* 
-     * --tk-text-xs
-     * Ideal for: Meta text, fine print, tooltips, footer copyrights.
-     * Min: 0.75rem (12px) | Max: 0.875rem (14px) 
-     */
-    --tk-text-xs: clamp(0.75rem, calc(0.75rem + (14 - 12) * var(--fluid-rem-factor)), 0.875rem);
-  
-    /* 
-     * --tk-text-sm
-     * Ideal for: Secondary text, captions, small button labels, dense UI elements.
-     * Min: 0.875rem (14px) | Max: 1rem (16px) 
-     */
-    --tk-text-sm: clamp(0.875rem, calc(0.875rem + (16 - 14) * var(--fluid-rem-factor)), 1rem);
-  
-    /* 
-     * --tk-text-md
-     * Ideal for: Standard body text, primary paragraphs, default input fields.
-     * Min: 1rem (16px) | Max: 1.125rem (18px) 
-     */
-    --tk-text-md: clamp(1rem, calc(1rem + (18 - 16) * var(--fluid-rem-factor)), 1.125rem);
-  
-    /* 
-     * --tk-text-lg
-     * Ideal for: Lead paragraphs (intro text), large UI buttons, H6 headings.
-     * Min: 1.125rem (18px) | Max: 1.25rem (20px) 
-     */
-    --tk-text-lg: clamp(1.125rem, calc(1.125rem + (20 - 18) * var(--fluid-rem-factor)), 1.25rem);
-  
-    /* 
-     * Ideal for: H5 headings, card titles, prominent subheadings.
-     * Min: 1.25rem (20px) | Max: 1.5rem (24px) 
-     */
-    --tk-text-xl: clamp(1.25rem, calc(1.25rem + (24 - 20) * var(--fluid-rem-factor)), 1.5rem);
-  
-    /* 
-     * Ideal for: H4 headings, standard section titles.
-     * Min: 1.5rem (24px) | Max: 2rem (32px) 
-     */
-    --tk-text-2xl: clamp(1.5rem, calc(1.5rem + (32 - 24) * var(--fluid-rem-factor)), 2rem);
-  
-    /* 
-     * Ideal for: H3 headings, prominent article titles.
-     * Min: 1.875rem (30px) | Max: 2.5rem (40px) 
-     */
-    --tk-text-3xl: clamp(1.875rem, calc(1.875rem + (40 - 30) * var(--fluid-rem-factor)), 2.5rem);
-  
-    /* 
-     * Ideal for: H2 headings, major page section headers.
-     * Min: 2.25rem (36px) | Max: 3rem (48px) 
-     */
-    --tk-text-4xl: clamp(2.25rem, calc(2.25rem + (48 - 36) * var(--fluid-rem-factor)), 3rem);
-  
-    /* 
-     * Ideal for: H1 headings, standard page titles, blog post headers.
-     * Min: 3rem (48px) | Max: 4rem (64px) 
-     */
-    --tk-text-5xl: clamp(3rem, calc(3rem + (64 - 48) * var(--fluid-rem-factor)), 4rem);
-  
-    /* 
-     * Ideal for: Hero section primary text, high-impact marketing banners.
-     * Min: 3.75rem (60px) | Max: 5rem (80px) 
-     */
-    --tk-text-6xl: clamp(3.75rem, calc(3.75rem + (80 - 60) * var(--fluid-rem-factor)), 5rem);
-  
-    /* 
-     * Ideal for: Large Hero displays, numbers in stats/data displays.
-     * Min: 4.5rem (72px) | Max: 6rem (96px) 
-     */
-    --tk-text-7xl: clamp(4.5rem, calc(4.5rem + (96 - 72) * var(--fluid-rem-factor)), 6rem);
-  
-    /* 
-     * Ideal for: Massive creative typography, distinct landing page focal points.
-     * Min: 6rem (96px) | Max: 8rem (128px) 
-     */
-    --tk-text-8xl: clamp(6rem, calc(6rem + (128 - 96) * var(--fluid-rem-factor)), 8rem);
-  
-    /* 
-     * Ideal for: Oversized decorative text, giant numbers, edge-to-edge typography.
-     * Min: 8rem (128px) | Max: 10rem (160px) 
-     */
-    --tk-text-9xl: clamp(8rem, calc(8rem + (160 - 128) * var(--fluid-rem-factor)), 10rem);
+   * Unitless interpolation factor:
+   *   0 at --fluid-min-vw
+   *   1 at --fluid-max-vw
+   *
+   * The factor is intentionally unitless because it is used
+   * to scale the rem length difference between each type scale's
+   * minimum and maximum values.
+   */
+  --fluid-rem-factor: calc(
+    (100vw - var(--fluid-min-vw) * 1px) /
+    var(--fluid-screen-range)
+  );
 
+
+  /*
+   * Fluid typography
+   *
+   * Each scale defines only its minimum and maximum rem values.
+   * The interpolation range is derived automatically:
+   *
+   *   max - min
+   *
+   * Because both endpoints are rem lengths, the result is also
+   * a rem length. Multiplying that length by the unitless
+   * --fluid-rem-factor produces a valid CSS length.
+   *
+   * Formula:
+   *
+   *   min + (max - min) × fluid-factor
+   *
+   * This avoids introducing unitless numbers such as (14 - 12)
+   * into a length calculation.
+   */
+
+
+  /* Extra Small: 12px → 14px */
+  --tk-text-xs-min: .75rem;
+  --tk-text-xs-max: .875rem;
+  --tk-text-xs: clamp(
+    var(--tk-text-xs-min),
+    calc(
+      var(--tk-text-xs-min) +
+      (var(--tk-text-xs-max) - var(--tk-text-xs-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-xs-max)
+  );
+
+
+  /* Small: 14px → 16px */
+  --tk-text-sm-min: .875rem;
+  --tk-text-sm-max: 1rem;
+  --tk-text-sm: clamp(
+    var(--tk-text-sm-min),
+    calc(
+      var(--tk-text-sm-min) +
+      (var(--tk-text-sm-max) - var(--tk-text-sm-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-sm-max)
+  );
+
+
+  /* Medium: 16px → 18px */
+  --tk-text-md-min: 1rem;
+  --tk-text-md-max: 1.125rem;
+  --tk-text-md: clamp(
+    var(--tk-text-md-min),
+    calc(
+      var(--tk-text-md-min) +
+      (var(--tk-text-md-max) - var(--tk-text-md-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-md-max)
+  );
+
+
+  /* Large: 18px → 20px */
+  --tk-text-lg-min: 1.125rem;
+  --tk-text-lg-max: 1.25rem;
+  --tk-text-lg: clamp(
+    var(--tk-text-lg-min),
+    calc(
+      var(--tk-text-lg-min) +
+      (var(--tk-text-lg-max) - var(--tk-text-lg-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-lg-max)
+  );
+
+
+  /* Extra Large: 20px → 24px */
+  --tk-text-xl-min: 1.25rem;
+  --tk-text-xl-max: 1.5rem;
+  --tk-text-xl: clamp(
+    var(--tk-text-xl-min),
+    calc(
+      var(--tk-text-xl-min) +
+      (var(--tk-text-xl-max) - var(--tk-text-xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-xl-max)
+  );
+
+
+  /* 2X Large: 24px → 32px */
+  --tk-text-2xl-min: 1.5rem;
+  --tk-text-2xl-max: 2rem;
+  --tk-text-2xl: clamp(
+    var(--tk-text-2xl-min),
+    calc(
+      var(--tk-text-2xl-min) +
+      (var(--tk-text-2xl-max) - var(--tk-text-2xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-2xl-max)
+  );
+
+
+  /* 3X Large: 30px → 40px */
+  --tk-text-3xl-min: 1.875rem;
+  --tk-text-3xl-max: 2.5rem;
+  --tk-text-3xl: clamp(
+    var(--tk-text-3xl-min),
+    calc(
+      var(--tk-text-3xl-min) +
+      (var(--tk-text-3xl-max) - var(--tk-text-3xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-3xl-max)
+  );
+
+
+  /* 4X Large: 36px → 48px */
+  --tk-text-4xl-min: 2.25rem;
+  --tk-text-4xl-max: 3rem;
+  --tk-text-4xl: clamp(
+    var(--tk-text-4xl-min),
+    calc(
+      var(--tk-text-4xl-min) +
+      (var(--tk-text-4xl-max) - var(--tk-text-4xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-4xl-max)
+  );
+
+
+  /* 5X Large: 48px → 64px */
+  --tk-text-5xl-min: 3rem;
+  --tk-text-5xl-max: 4rem;
+  --tk-text-5xl: clamp(
+    var(--tk-text-5xl-min),
+    calc(
+      var(--tk-text-5xl-min) +
+      (var(--tk-text-5xl-max) - var(--tk-text-5xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-5xl-max)
+  );
+
+
+  /* 6X Large: 60px → 80px */
+  --tk-text-6xl-min: 3.75rem;
+  --tk-text-6xl-max: 5rem;
+  --tk-text-6xl: clamp(
+    var(--tk-text-6xl-min),
+    calc(
+      var(--tk-text-6xl-min) +
+      (var(--tk-text-6xl-max) - var(--tk-text-6xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-6xl-max)
+  );
+
+
+  /* 7X Large: 72px → 96px */
+  --tk-text-7xl-min: 4.5rem;
+  --tk-text-7xl-max: 6rem;
+  --tk-text-7xl: clamp(
+    var(--tk-text-7xl-min),
+    calc(
+      var(--tk-text-7xl-min) +
+      (var(--tk-text-7xl-max) - var(--tk-text-7xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-7xl-max)
+  );
+
+
+  /* 8X Large: 96px → 128px */
+  --tk-text-8xl-min: 6rem;
+  --tk-text-8xl-max: 8rem;
+  --tk-text-8xl: clamp(
+    var(--tk-text-8xl-min),
+    calc(
+      var(--tk-text-8xl-min) +
+      (var(--tk-text-8xl-max) - var(--tk-text-8xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-8xl-max)
+  );
+
+
+  /* 9X Large: 128px → 160px */
+  --tk-text-9xl-min: 8rem;
+  --tk-text-9xl-max: 10rem;
+  --tk-text-9xl: clamp(
+    var(--tk-text-9xl-min),
+    calc(
+      var(--tk-text-9xl-min) +
+      (var(--tk-text-9xl-max) - var(--tk-text-9xl-min)) *
+      var(--fluid-rem-factor)
+    ),
+    var(--tk-text-9xl-max)
+  );
     /*
    * Font Weights
    *
@@ -198,7 +322,7 @@
    * - Larger values create more spacing for easier reading
    */
     --tk-line-height-xs: 0.55;
-    --tk-line-height-sm: 1;
+    --tk-line-height-sm: 1.1;
     --tk-line-height-md: 1.25;
     --tk-line-height-lg: 1.5;
     --tk-line-height-xl: 1.625;
@@ -433,50 +557,4 @@
     --tk-text-wrap-stable: stable;
 
 
-    /* ====================================================================== */
-    /* BACKGROUND SYSTEM                                                       */
-    /* ====================================================================== */
-
-    /*
-   * Background Properties
-   *
-   * These variables define common background property values for consistent usage.
-   * Background properties control how backgrounds are displayed.
-   */
-
-    /* Background Repeat */
-    --tk-bg-none: none; /* No background image */
-    --tk-bg-repeat: repeat; /* Repeat in both directions */
-    --tk-bg-no-repeat: no-repeat; /* No repetition */
-    --tk-bg-repeat-x: repeat-x; /* Repeat horizontally only */
-    --tk-bg-repeat-y: repeat-y; /* Repeat vertically only */
-
-    /* Background Attachment */
-    --tk-bg-fixed: fixed; /* Fixed to viewport */
-    --tk-bg-local: local; /* Scrolls with content */
-    --tk-bg-scroll: scroll; /* Scrolls with element */
-
-    /* Background Clip */
-    --tk-bg-clip-border: border-box; /* Extend to outer border edge */
-    --tk-bg-clip-padding: padding-box; /* Extend to outer padding edge */
-    --tk-bg-clip-content: content-box; /* Extend to content edge */
-
-    /* Background Position */
-    --tk-bg-position-center: center; /* Center alignment */
-    --tk-bg-position-top: top; /* Top alignment */
-    --tk-bg-position-bottom: bottom; /* Bottom alignment */
-    --tk-bg-position-left: left; /* Left alignment */
-    --tk-bg-position-right: right; /* Right alignment */
-
-    /* Background Size */
-    --tk-bg-size-cover: cover; /* Cover the area */
-    --tk-bg-size-contain: contain; /* Contain the area */
-
-    /* Background Origin */
-    --tk-bg-origin-border: border-box; /* Extend to outer border edge */
-    --tk-bg-origin-padding: padding-box; /* Extend to outer padding edge */
-    --tk-bg-origin-content: content-box; /* Extend to content edge */
-
-
- 
 }

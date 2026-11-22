@@ -20,7 +20,7 @@ Each heading has appropriate bottom margin. Headings use `text-wrap: balance` fo
 ```css
 p {
   font-size: var(--tk-text-md);
-  color: var(--tk-fg-4x);
+  color: var(--tk-fg-theme-4x);
 }
 ```
 
@@ -30,9 +30,9 @@ Paragraphs following `h1` or `h2` automatically use `--tk-text-lg` for lead/hero
 
 | Element | Style |
 |---|---|
-| `strong`, `b` | Font weight 700, high contrast (`--tk-fg-5x`) |
+| `strong`, `b` | Font weight 700, high contrast (`--tk-fg-theme-5x`) |
 | `em`, `i` | Italic |
-| `small` | `--tk-text-sm`, muted (`--tk-fg-2x`) |
+| `small` | `--tk-text-sm`, muted (`--tk-fg-theme-2x`) |
 | `mark` | Accent background with dark accent text, rounded padding |
 | `code` | Monospace, primary-tinted background, rounded |
 | `kbd` | Keyboard key style — bordered, shadowed, monospace |
