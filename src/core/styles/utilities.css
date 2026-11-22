@@ -118,9 +118,9 @@
 }
 
 [aria-disabled="true"] {
-  cursor: var(--tk-cursor-not-allowed);
-  opacity: var(--tk-opacity-md);
-  pointer-events: var(--tk-pointer-events-none);
+  cursor: not-allowed;
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 [data-status="success"] {
@@ -155,8 +155,8 @@
   height: 1px;
   padding: 0;
   margin: -1px;
-  overflow: var(--tk-overflow-hidden);
+  overflow: hidden;
   clip: rect(0, 0, 0, 0);
-  white-space: var(--tk-whitespace-nowrap);
+  white-space: nowrap;
   border-width: 0;
 }

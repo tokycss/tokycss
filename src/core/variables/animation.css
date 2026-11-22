@@ -19,39 +19,11 @@
     --tk-duration-xl: 3s;
 
     /*
-   * Animation Delay Variables
-   *
-   * These variables define animation delays for staggered effects.
-   */
-
-    /* Delay */
-    --tk-delay-xs: 0.05s;
-    --tk-delay-sm: 0.15s;
-    --tk-delay-md: 0.4s;
-    --tk-delay-lg: 0.7s;
-    --tk-delay-xl: 1.5s;
-
-    /*
-   * Animation Engine Variables
-   *
-   * These variables control the default behavior of the animation engine.
-   */
-    --tk-anim-default-duration: var(
-        --tk-duration-md
-    ); /* Default animation duration */
-    --tk-anim-default-timing: ease-out; /* Default timing function */
-    --tk-anim-default-fill-mode: both;
-    --tk-anim-default-iteration-count: 1; /* Default iteration count */
-    --tk-anim-default-direction: normal; /* Default direction */
-    --tk-anim-default-play-state: running; /* Default play state */
-
-    /*
    * Animation Properties
    *
    * These variables define common animation presets for consistent usage.
    * Animations create movement and visual interest in the interface.
    */
-    --tk-animation-none: none; /* No animation */
     --tk-animation-spin: spin 1s linear infinite; /* Spinning animation */
     --tk-animation-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite; /* Ping/pulse effect */
     --tk-animation-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; /* Subtle pulse */
@@ -123,13 +95,6 @@
    * These variables define common transition presets for consistent usage.
    * Transitions create smooth animations between property changes.
    */
-
-    /* Transition Durations */
-    --tk-transition-xs: 150ms;
-    --tk-transition-sm: 225ms;
-    --tk-transition-md: 300ms;
-    --tk-transition-lg: 375ms;
-    --tk-transition-xl: 450ms;
 
     /* Common Transitions */
     --tk-transition-all: all 0.4s var(--tk-ease);

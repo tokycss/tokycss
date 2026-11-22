@@ -92,7 +92,7 @@ Configure lane widths in your `styleguide.css` (see [Layout Variables](../variab
 @layer styleguide {
   :root {
     --tk-content-width: 80ch;
-    --tk-content-fill-width: 90ch;
+    --tk-breakout-width: 90ch;
     --tk-page-gutter: var(--tk-size-20);
   }
 }

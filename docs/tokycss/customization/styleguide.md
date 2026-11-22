@@ -94,7 +94,7 @@ You can copy it directly into a project and customize it as needed.
     /* LAYOUT */
     --tk-page-gutter: var(--tk-size-20);
     --tk-content-width: 80ch;
-    --tk-content-fill-width: 90ch;
+    --tk-breakout-width: 90ch;
 
     /* FLUID TYPOGRAPHY */
     --tk-fluid-scale-start: 480;

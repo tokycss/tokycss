@@ -20,7 +20,7 @@ header > nav ul li {
 
 header > * nav ul li a {
     font-size: var(--tk-text-xs);
-    text-decoration: var(--tk-value-none);
+    text-decoration: none;
 }
 
 body > footer {
@@ -52,7 +52,7 @@ aside {
  * accidental full-bleed elements and provides a stable foundation.
  */
 .layout--grid > * {
-    grid-column: main; /* The 'main' named grid area */
+    grid-column: main-start / main-end; /* The 'main' lane */
 }
 
 /* --- 3. Simple Lane Utilities --- */
@@ -64,22 +64,22 @@ aside {
 
 /* Places an element in the main, readable content layout. */
 .layout--grid > .layout--main {
-    grid-column: main;
+    grid-column: main-start / main-end;
 }
 
 .layout--full > .layout--main {
-    grid-column: main;
+    grid-column: main-start / main-end;
 }
 
 /* Places an element in the second, larger breakout lane. */
 .layout--grid > .layout--fill {
-    grid-column: fill;
+    grid-column: fill-start / fill-end;
 }
 
 /* Places an element in the full-width, edge-to-edge layout. */
 .layout--grid > .layout--full {
     display: grid;
-    grid-column: full;
+    grid-column: full-start / full-end;
 }
 
 

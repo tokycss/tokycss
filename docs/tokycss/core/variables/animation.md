@@ -4,24 +4,15 @@
 
 | Variable | Value | Feel |
 |---|---|---|
-| `--tk-duration-2x` | 0.1s | Lightning fast |
-| `--tk-duration-xs` | 0.2s | Very fast |
-| `--tk-duration-sm` | 0.5s | Fast |
+| `--tk-duration-xs` | 0.1s | Lightning fast |
+| `--tk-duration-sm` | 0.35s | Fast |
 | `--tk-duration-md` | 0.8s | Standard |
-| `--tk-duration-lg` | 1.2s | Slow |
-| `--tk-duration-xl` | 2s | Very slow |
-| `--tk-duration-2xl` | 4s | Slow motion |
-| `--tk-duration-3xl` | 8s | Drawn out |
+| `--tk-duration-lg` | 1.5s | Slow |
+| `--tk-duration-xl` | 3s | Very slow |
 
 ## Delay
 
-| Variable | Value |
-|---|---|
-| `--tk-delay-xs` | 0.1s |
-| `--tk-delay-sm` | 0.2s |
-| `--tk-delay-md` | 0.4s |
-| `--tk-delay-lg` | 0.6s |
-| `--tk-delay-xl` | 0.8s |
+Delays are not tokenised. Write the value directly — `animation-delay: 0.15s` is clearer than a variable that only renames the number.
 
 ## Easing Functions
 
@@ -68,6 +59,8 @@ Apply these with the `animation` property.
 | `--tk-animation-bounce` | bounce 1s infinite |
 | `--tk-animation-fade` | fade 1s ease-in-out infinite |
 | `--tk-animation-slide` | slide 1s ease-in-out infinite |
+| `--tk-animation-fade-slide` | fade-slide 1s ease-in-out infinite |
+| `--tk-animation-fade-bounce` | fade-bounce 1s ease-in-out infinite |
 
 ```css
 .spinner {
@@ -82,9 +75,14 @@ Pre-built transition shorthand values for common property groups.
 | Variable | Value |
 |---|---|
 | `--tk-transition-all` | all 0.4s var(--tk-ease) |
-| `--tk-transition-all-xs` | all 0.2s var(--tk-ease) |
+| `--tk-transition-all-xs` | all 0.15s var(--tk-ease) |
+| `--tk-transition-all-sm` | all 0.225s var(--tk-ease) |
+| `--tk-transition-all-md` | all 0.3s var(--tk-ease) |
+| `--tk-transition-all-lg` | all 0.375s var(--tk-ease) |
+| `--tk-transition-all-xl` | all 0.45s var(--tk-ease) |
 | `--tk-transition-color` | color 0.4s var(--tk-ease) |
 | `--tk-transition-background` | background 0.4s var(--tk-ease) |
+| `--tk-transition-border` | border 0.4s var(--tk-ease) |
 | `--tk-transition-opacity` | opacity 0.4s var(--tk-ease) |
 | `--tk-transition-transform` | transform 0.4s var(--tk-ease) |
 | `--tk-transition-box-shadow` | box-shadow 0.4s var(--tk-ease) |

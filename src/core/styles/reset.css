@@ -16,7 +16,7 @@
   body {
     background-color: var(--tk-bg-theme-4x);
     max-width: var(--tk-screen-xl);
-    margin-inline: var(--tk-value-auto);
+    margin-inline: auto;
     color: var(--tk-fg-theme-4x);
     font-family: var(--tk-font-body);
     font-size: var(--tk-text-md);
@@ -31,13 +31,13 @@
     line-height: var(--tk-line-height-sm);
     letter-spacing: var(--tk-letter-spacing-md);
     overflow-wrap: break-word;
-    text-wrap: var(--tk-text-wrap-balance);
+    text-wrap: balance;
   }
 
   p, span {
     line-height: var(--tk-line-height-sm);
     overflow-wrap: break-word;
-    text-wrap: var(--tk-text-wrap-pretty);
+    text-wrap: pretty;
   }
 
   img, picture, video, canvas, svg, i {
@@ -47,7 +47,7 @@
     min-width: 16px;
     max-width: 100%;
     height: auto;
-    font-style: var(--tk-font-style-italic);
+    font-style: italic;
     display: block;
   }
 
@@ -70,16 +70,16 @@
   }
 
   button {
-    cursor: var(--tk-cursor-pointer);
-    background: var(--tk-bg-none);
-    border: var(--tk-border-none);
+    cursor: pointer;
+    background: none;
+    border: none;
   }
 
   a {
     color: inherit;
-    font-weight: var(--tk-font-weight-500);
+    font-weight: 500;
     text-decoration: inherit;
-    cursor: var(--tk-cursor-pointer);
+    cursor: pointer;
   }
 
   ol, ul, menu {
@@ -116,7 +116,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--tk-bg-none);
+    background: none;
   }
 
   ::-webkit-scrollbar-thumb {
@@ -134,7 +134,7 @@
   }
 
   [hidden] {
-    display: var(--tk-display-none);
+    display: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -172,6 +172,6 @@
     }
 
     * {
-      box-shadow: var(--tk-value-none) ;
+      box-shadow: none ;
     }
   }

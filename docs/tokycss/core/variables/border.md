@@ -2,19 +2,16 @@
 
 ## Border Radius
 
-Controls the roundness of element corners.
+Controls the roundness of element corners. This is the only border decision Toky tokenises — it is a design-language choice, not a CSS value.
 
 | Variable | Value | Visual |
 |---|---|---|
 | `--tk-radius-0` | 0 | Sharp corners |
-| `--tk-radius-2xs` | 1px | Barely visible |
-| `--tk-radius-xs` | 2px | Subtle |
+| `--tk-radius-xs` | 2px | Barely visible |
 | `--tk-radius-sm` | 4px | Soft |
 | `--tk-radius-md` | 8px | Standard |
 | `--tk-radius-lg` | 12px | Prominent |
 | `--tk-radius-xl` | 16px | Very rounded |
-| `--tk-radius-2xl` | 20px | Extra rounded |
-| `--tk-radius-3xl` | 24px | Maximum rounding |
 | `--tk-radius-full` | 9999px | Fully round (circles/pills) |
 
 ```css
@@ -29,31 +26,31 @@ Controls the roundness of element corners.
 
 ## Border Width
 
-| Variable | Value |
-|---|---|
-| `--tk-border-0` | 0px |
-| `--tk-border-2xs` | 1px |
-| `--tk-border-xs` | 2px |
-| `--tk-border-sm` | 4px |
-| `--tk-border-md` | 8px |
-| `--tk-border-lg` | 12px |
+Use native CSS. Border widths are short, self-describing units, so a token only adds typing:
+
+```css
+.card {
+  border: 1px solid var(--tk-fg-theme-2x);
+}
+```
 
 ## Border Style
 
-| Variable | Value |
-|---|---|
-| `--tk-border-none` | none |
-| `--tk-border-solid` | solid |
-| `--tk-border-dashed` | dashed |
-| `--tk-border-dotted` | dotted |
-| `--tk-border-double` | double |
+Use the native keyword directly — `solid`, `dashed`, `dotted`, `double`, `groove`, `ridge`, `inset`, `outset`.
+
+```css
+.rule {
+  border-bottom: 1px dashed var(--tk-fg-theme-2x);
+}
+```
 
 ## Outline
 
-| Variable | Value |
-|---|---|
-| `--tk-outline-none` | none |
-| `--tk-outline-2xs` | 1px |
-| `--tk-outline-xs` | 2px |
-| `--tk-outline-sm` | 4px |
-| `--tk-outline-md` | 8px |
+Outline width and style are native CSS too:
+
+```css
+:focus-visible {
+  outline: 2px solid var(--tk-focus-ring);
+  outline-offset: 2px;
+}
+```

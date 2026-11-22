@@ -21,108 +21,61 @@ Configure the lane widths in `styleguide.css`:
 ```css
 @layer styleguide {
   :root {
-    --tk-content-width: 80ch;        /* Main lane width */
-    --tk-content-fill-width: 90ch;   /* Fill lane width */
+    --tk-content-width: 80ch;             /* Main lane width */
+    --tk-breakout-width: 90ch;            /* Fill lane width */
     --tk-page-gutter: var(--tk-size-20);  /* Side gutters */
   }
 }
 ```
 
-## Position
-
-| Variable | Value |
-|---|---|
-| `--tk-position-static` | static |
-| `--tk-position-relative` | relative |
-| `--tk-position-absolute` | absolute |
-| `--tk-position-fixed` | fixed |
-| `--tk-position-sticky` | sticky |
-
-## Display
-
-| Variable | Value |
-|---|---|
-| `--tk-display-block` | block |
-| `--tk-display-inline` | inline |
-| `--tk-display-inline-block` | inline-block |
-| `--tk-display-flex` | flex |
-| `--tk-display-inline-flex` | inline-flex |
-| `--tk-display-grid` | grid |
-| `--tk-display-none` | none |
-
-## Overflow
-
-| Variable | Value |
-|---|---|
-| `--tk-overflow-auto` | auto |
-| `--tk-overflow-hidden` | hidden |
-| `--tk-overflow-visible` | visible |
-| `--tk-overflow-scroll` | scroll |
-
-## Flexbox
-
-**Direction:**
-```css
---tk-flex-direction-row: row;
---tk-flex-direction-column: column;
---tk-flex-direction-row-reverse: row-reverse;
-```
-
-**Justify content (main axis):**
-```css
---tk-justify-start: flex-start;
---tk-justify-center: center;
---tk-justify-between: space-between;
---tk-justify-around: space-around;
---tk-justify-evenly: space-evenly;
-```
-
-**Align items (cross axis):**
-```css
---tk-align-start: flex-start;
---tk-align-end: flex-end;
---tk-align-center: center;
---tk-align-baseline: baseline;
---tk-align-stretch: stretch;
-```
-
-## Grid
-
-```css
---tk-grid-auto-fit: auto-fit;
---tk-grid-auto-fill: auto-fill;
-```
-
-## Gap
-
-| Variable | Value |
-|---|---|
-| `--tk-gap-0` | 0 |
-| `--tk-gap-xs` | 2px |
-| `--tk-gap-sm` | 4px |
-| `--tk-gap-md` | 8px |
-| `--tk-gap-lg` | 16px |
-| `--tk-gap-xl` | 32px |
+The grid engine itself is internal and prefixed `--_tk-layout-*`. Configure it through the tokens above, not by editing the engine.
 
 ## Z-Index
 
-| Variable | Value |
-|---|---|
-| `--tk-z-index-auto` | auto |
-| `--tk-z-index-0` | 0 |
-| `--tk-z-index-xs` | 1 |
-| `--tk-z-index-sm` | 10 |
-| `--tk-z-index-md` | 100 |
-| `--tk-z-index-lg` | 1000 |
-| `--tk-z-index-xl` | 10000 |
+A semantic layering scale. The numbers matter less than the order, and the token says what the layer is for.
+
+| Variable | Value | Use |
+|---|---|---|
+| `--tk-z-index-auto` | auto | No stacking |
+| `--tk-z-index-xs` | 1 | In-flow nudges |
+| `--tk-z-index-sm` | 10 | Sticky headers |
+| `--tk-z-index-md` | 100 | Dropdowns |
+| `--tk-z-index-lg` | 1000 | Dialogs |
+| `--tk-z-index-xl` | 10000 | Toasts |
 
 ## Aspect Ratios
 
+| Variable | Value |
+|---|---|
+| `--tk-aspect-ratio-square` | 1 / 1 |
+| `--tk-aspect-ratio-video` | 16 / 9 |
+| `--tk-aspect-ratio-portrait` | 3 / 4 |
+| `--tk-aspect-ratio-landscape` | 4 / 3 |
+| `--tk-aspect-ratio-widescreen` | 21 / 9 |
+| `--tk-aspect-ratio-golden` | 1.618 / 1 |
+
 ```css
---tk-aspect-ratio-square: 1 / 1;
---tk-aspect-ratio-video: 16 / 9;
---tk-aspect-ratio-portrait: 3 / 4;
---tk-aspect-ratio-landscape: 4 / 3;
---tk-aspect-ratio-widescreen: 21 / 9;
---tk-aspect-ratio-golden: 1.618 / 1;
+.thumbnail {
+  aspect-ratio: var(--tk-aspect-ratio-video);
+}
 ```
+
+## Position, Display, Overflow, Flexbox, Grid, Gap
+
+These are native CSS values. Use them directly — `display: flex` is shorter than a token and needs no lookup:
+
+```css
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel {
+  position: absolute;
+  overflow: hidden;
+}
+```
+
+Grid alignment values (`auto-fit`, `auto-fill`, `start`, `center`, `stretch`, `space-between`) are likewise native.

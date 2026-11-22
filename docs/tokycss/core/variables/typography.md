@@ -25,86 +25,67 @@ h1 { font-size: var(--tk-text-5xl); }
 small { font-size: var(--tk-text-xs); }
 ```
 
-## Font Weights
-
-| Variable | Value |
-|---|---|
-| `--tk-font-weight-400` | 400 (normal) |
-| `--tk-font-weight-600` | 600 (semi-bold) |
-| `--tk-font-weight-700` | 700 (bold) |
-| `--tk-font-weight-800` | 800 (extra bold) |
-| `--tk-font-weight-900` | 900 (black) |
-
-Full range from 100 to 900 available.
+Each step also exposes its endpoints as `--tk-text-<size>-min` and `--tk-text-<size>-max` if you need to tune one step. The fluid engine itself (`--_tk-fluid-*`) is internal.
 
 ## Line Heights
 
 | Variable | Value | Best for |
 |---|---|---|
-| `--tk-line-height-xs` | 1 | Headings |
-| `--tk-line-height-sm` | 1.25 | Tight text |
-| `--tk-line-height-md` | 1.5 | Body text |
-| `--tk-line-height-lg` | 1.625 | Relaxed reading |
-| `--tk-line-height-xl` | 2 | Loose spacing |
+| `--tk-line-height-xs` | 0.55 | Display headings |
+| `--tk-line-height-sm` | 1.1 | Headings |
+| `--tk-line-height-md` | 1.25 | Tight text |
+| `--tk-line-height-lg` | 1.5 | Body text |
+| `--tk-line-height-xl` | 1.625 | Relaxed reading |
 
 ## Letter Spacing
 
 | Variable | Value |
 |---|---|
+| `--tk-letter-spacing-xs` | -0.05em |
 | `--tk-letter-spacing-sm` | -0.025em |
 | `--tk-letter-spacing-md` | 0em (normal) |
 | `--tk-letter-spacing-lg` | 0.025em |
-| `--tk-letter-spacing-xl` | 0.05em |
+| `--tk-letter-spacing-xl` | 0.1em |
 
-## Text Decoration
+## Font Weights, Stretch, Style, Variants
+
+These are native CSS values. Write them directly:
 
 ```css
---tk-text-underline-offset-md: 0.15em;
---tk-text-underline-xs: 2px;
---tk-text-underline-style-wavy: wavy;
+.strong {
+  font-weight: 700;
+}
+
+.caps {
+  font-variant-caps: small-caps;
+}
+
+.narrow {
+  font-stretch: condensed;
+}
 ```
 
-## Text Transform
+## Text Decoration, Transform, Alignment, and Wrapping
+
+Also native. Use the CSS keyword:
 
 ```css
---tk-text-transform-uppercase: uppercase;
---tk-text-transform-lowercase: lowercase;
---tk-text-transform-capitalize: capitalize;
-```
+.link {
+  text-decoration: underline wavy 2px;
+  text-underline-offset: 0.15em;
+}
 
-## Text Alignment
+.label {
+  text-transform: uppercase;
+  text-align: left;
+  text-wrap: balance;
+}
 
-```css
---tk-text-left: left;
---tk-text-center: center;
---tk-text-right: right;
-```
+.list {
+  list-style: disc;
+}
 
-## List Style
-
-```css
---tk-list-style-type-disc: disc;
---tk-list-style-type-decimal: decimal;
-```
-
-## Text Wrap
-
-```css
---tk-text-wrap-balance: balance;
---tk-text-wrap-pretty: pretty;
-```
-
-## User Select
-
-```css
---tk-user-select-none: none;
---tk-user-select-text: text;
---tk-user-select-all: all;
-```
-
-## Word Break
-
-```css
---tk-word-break-break-all: break-all;
---tk-overflow-wrap-break-word: break-word;
+.no-select {
+  user-select: none;
+}
 ```
